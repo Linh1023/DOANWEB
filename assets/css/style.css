@@ -3,7 +3,10 @@
     padding:0;
     margin:0;
     box-sizing: border-box;
-    font-family:'Poppins', sans-serif;
+}
+
+body{
+    font-family: "Spectral", serif ;
 }
 
 #wrapper {
@@ -69,7 +72,13 @@
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     list-style: none;
+    line-height: 40px; 
 }
+
+#menu .subnav li{
+    width: 100%;
+}
+
 #menu li:hover .subnav{
     display: block;
 }
@@ -90,7 +99,7 @@
 
 #banner {
     width: 100%;
-    background: url(/web_shop_ban_hang/web_shop_ban_hang-main/assets/images/bg_2.1.jpg);
+    background: url(/assets/images/bg_2.1.jpg);
     height: 851px;
     margin-top:100px;
     display: flex;
@@ -174,14 +183,68 @@
     transform:translateX(-50%);
 }
 
+.content-section{
+    width: 800px;
+    max-width: 100%;
+    padding: 64px 0 112px;
+    margin-left: auto;
+    margin-right: auto;
+    /* text-align: center; */
+    padding-left: 16px;
+    padding-right: 8px;
+    margin-top: 40px;  
+}
 
+.sectiom{
+    float: right;
+}
+
+.section-sub-heading{
+    color: #b7472a;
+    font-style: italic;
+    font-size: 18px;
+}
+
+.section-heading{
+    font-size: 30px;
+    font-weight: 500;
+    margin: 10px 0;
+    letter-spacing: 4px;
+}
+
+ .about-text{
+    margin: 15px 0;
+    
+    /* font-size: 15px; */
+    font: 15px;
+    text-align: justify;
+    line-height: 1.4;
+}
+
+.img-about img{
+    width: 40%;
+    height: 50%;
+    float: left;
+    margin-right: 60px;
+}
+.year{
+    font-weight: 300;
+    font-size: 25px;
+    color: #000000;
+    letter-spacing: 2px;
+}
+
+.year strong{
+    color: #b7472a;
+    font-style: italic;
+}
 
 #wp-products {
     padding-top:116px;
     padding-bottom: 78px;
     padding-left:134px;
     padding-right:134px;
-    
+   
 }
 
 #wp-products h2 {
@@ -189,6 +252,19 @@
     margin-bottom: 76px;
     font-size:32px;
     color:#626a67;
+}
+
+#wp-products .more-product{
+    border: 8px solid #000;
+    border-radius: 10px;
+    text-align: center;
+    background-color: #000;
+}
+
+#wp-products .more-product a{
+    text-decoration: none;
+    color: #fff;
+    
 }
 
 
@@ -206,6 +282,13 @@
     background:#111010;
     border-radius: 10px;
     margin-bottom: 50px;
+    transition: trasform linear 0.1s;
+    border: 1px solid #000;
+}
+
+#list-products .item:hover {
+    box-shadow: 0 1px 20px 0 rgba(5, 4, 4, 0.05);
+    transform: translateY(-2px);
 }
 
 #list-products .item img {
@@ -243,7 +326,7 @@
 }
 
 
-.list-page {
+/* .list-page {
     width: 50%;
     margin:0px auto;
 }
@@ -268,7 +351,7 @@
 .list-page .item a {
     color:#fff;
     text-decoration: none;
-}
+} */
 
 
 #saleoff {
@@ -290,87 +373,24 @@
 }
 #saleoff .box-left span:nth-child(1)
 {
+    
     color:#fff;
-    font-size:50px;
+    font-size:40px;
 }
 
 #saleoff .box-left span:nth-child(2)
 {
+   
     color:orange;
     font-size:128px;
 }
 
 #saleoff .box-right {
-    background-image:url("/web_shop_ban_hang/web_shop_ban_hang-main/assets/images/saleoff.jpg");
+    background-image:url("/assets/images/saleoff.jpg");
 }
 
 
-#comment {
-    width: 1012px;
-    height: 478px;
-    margin:0px auto;
-    margin-top:184px;
-    margin-bottom: 50px;
-}
 
-#comment h2 {
-    text-align: center;
-    margin-bottom: 50px;
-    font-size:32px;
-    color:#626a67;
-}
-
-
-#comment-body{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 1000px;
-    height: 400px;
-    list-style: none;
-    overflow: hidden;
-}
-
-#list-comment {
-    width: 100%;
-    height: 100%;
-    list-style: none;
-    transition:0.5s;
-}
-
-#list-comment .item {
-    width: 100%;
-    height: 100%;
-    background:#362f2f;
-    border-radius: 20px;
-    padding-top:50px;
-}
-
-#list-comment .item .avatar {
-    text-align: center;
-    margin-top:13px;
-}
-
-#list-comment .item .stars {
-    display: flex;
-    margin:0px auto;
-    width: 50%;
-    margin-top:32px;
-    justify-content: center;
-    align-items: center;
-}
-
-#list-comment .item .name {
-    text-align: center;
-    font-weight: bold;
-    color:#fff;
-}
-
-#list-comment .item .text {
-    padding:20px 50px;
-    color:#fff;
-   
-}
 
 #footer {
     width: 100%;

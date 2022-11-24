@@ -1,0 +1,231 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding:0;
+    color: #fff;
+}
+a{
+    text-decoration: none;
+}
+li{
+    list-style: none;
+}
+:root{
+    --colorba:#454e58;
+}
+
+.mr-6{
+    margin-right: 6px;
+}
+.clear{
+    clear: both;
+}
+.open{
+    display: block !important;
+}
+table{
+    border-collapse:collapse;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.body{
+    background-color: #2f353a;
+    position: relative;
+    min-height:100vh ;
+}
+
+.header{
+    position: fixed;
+    top:0;
+    left: 0;
+    right: 0;
+    background-color: var(--colorba);
+
+}
+.header h2{
+    line-height: 75px;
+    text-align: center;
+}
+.container{
+    padding: 85px 10px 10px 10px;
+    
+}   
+.sidebar{
+    float: left;
+    width: 130px;
+    height: auto;
+    position: fixed;
+
+}
+.sidebar li{
+    cursor: pointer;
+}
+.sidebar .nav-title{
+    
+    line-height: 50px;
+    text-align: center;
+    font-size: 25px;
+}
+.sidebar .nav-item{
+    line-height: 30px;
+    padding:10px;
+
+}
+.sidebar .nav-item:hover{
+    background-color: var(--colorba); 
+}
+.main{
+    width:calc(100% - 130px);
+    display: flex;
+    float:right;
+    flex-direction: column;
+    padding-left: 5px;
+}
+
+
+/* san pham */
+.sanpham{
+    display: none;
+}
+.table-header{
+    width:100%;
+    background-color:#454e58;
+}
+.table-header th ,.table-header td{
+    padding: 5px;
+
+}
+.table-content{
+    width:100%;
+}
+.table-content td{
+    border: 1px solid rgb(143, 34, 34);
+
+}
+
+/* .table-content tr{
+} */
+.table-content table{
+    width: 100%;
+}
+.table-content tbody{
+    text-align: center;
+}
+.table-content .tooltip{
+    display: inline-block;
+    padding:10px ;
+    cursor: pointer;
+}
+.table-content .tooltip:hover{
+    background-color: rgba(0, 0, 0, 0.205);
+}
+.table-footer{
+    width:100%;
+    padding:10px;
+    background-color:#454e58;
+}
+.table-footer *{
+    font-size: 12px;
+    padding: 8px;
+}
+.table-footer select,.table-footer select *, .table-footer input{
+    color: #000;
+}
+
+.table-footer button{
+    background-color: rgb(0, 64, 64);
+}
+
+/*khung them san pham */
+.overclass{
+    transform: scale(0);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right:0;
+    left:0;
+    background-color: rgba(0, 0, 0, 0.605);
+}
+
+.overclass .close{
+    position: absolute;
+    top:0;
+    right:0;
+    padding:  10px 17px 6px;
+    font-size:30px;
+    /* font-weight: 800; */
+}
+
+.overclass input,.overclass select,.overclass select *{
+    width:100%;
+    height: 35px;
+    border-radius: 5px;
+    color:#000;
+    padding:5px;
+    font-size: 20px;
+}
+.overclass select option{
+    width:10px;
+}
+
+
+.overclass .close:hover{
+    background-color:red;
+}
+
+.overclass tr{
+    height: 40px;
+    font-size:20px;
+}
+
+.overclass td{
+    border: 1px solid rgb(77, 68, 68);
+
+}
+
+.overclass .overlayTable {
+    margin: 40px auto;
+    width: 500px;
+    background-color: #23282c;
+}
+/* -khung them san phâm- */
+
+/* khung sưa san pham */
+#khungSuaSanPham{
+}
+/* -san pham- */
+/* đơn hàng */
+.donhang{
+    display: none;
+
+
+
+}
+.donhang .timTheoNgay{
+    float:left;
+    padding:0 10px 0 0;
+    margin-right: 10px;
+    border-right :1px solid #fff ;
+}
+.donhang .kieuTimDonHang{
+    float:left;
+}
+/* -Đơn hàng- */
+.khachhang{
+    
+    display: none;
+
+}

@@ -8,6 +8,9 @@
     <title>Since 1985 </title>
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="shortcut icon" href="/web_shop_ban_hang/web_shop_ban_hang-main/assets/images/wine-glass.png" />
+    <script src="./assets/js/products.js">
+
+    </script>
 
 </head>
 
@@ -16,12 +19,12 @@
 
     <div id="wrapper">
         <div id="header">
-            <a href="" class="logo">
+            <a href="index.html" target="_parent" class="logo">
                 <img src="assets/images/logowine.png" alt="">
             </a>
             <div id="menu">
                 <div class="item">
-                    <a href="">Trang chủ</a>
+                    <a href="index.html" target="_parent">Trang chủ</a>
                 </div>
                 <div class="item">
                     <li>
@@ -30,17 +33,14 @@
                          <img src="./assets/images/chevron.png" alt="">
                         </a>
                         <ul class="subnav">
-                          <li><a href="./Whiskey.html">Whisky</a></li>
-                          <li><a href="#">Rum</a></li>
-                          <li><a href="#">Vodka</a></li>
-                          <li><a href="#">Brandy</a></li>
-                          <li><a href="#">Tequila</a></li>
-                          <li><a href="#">Gin</a></li>
+                          <li><a href="Whiskey.html" target="_blank">Whisky</a></li>
+                          <li><a href="Rum.html" target="_blank">Rum</a></li>
+                          <li><a href="Vodka.html" target="_blank">Vodka</a></li>
                         </ul>
                     </li>
                 </div>
                 <div class="item">
-                    <a href="">Giới Thiệu</a>
+                    <a href="#about">Giới Thiệu</a>
                 </div>
                 <div class="item">
                     <a href="#footer">Liên hệ</a>
@@ -76,11 +76,33 @@
                 </a>
             </div>
         </div>
+        <!--About section-->
+        <div id="about" class="content-section">
+            <div class="img-about">
+                <img src="/assets/images/about.jpg" alt="">
+            </div>
+            <div class="section">
+                <p class="section-sub-heading">Since 1985</p>
+            <h2 class="section-heading">Desire meets a new Taste</h2> 
+            <p class="about-text">
+                A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.
+            </p>
+           
+            <p class="about-text">
+                On her way she met a copy. The copy warned the Little Blind Text, that where it came from it would have been rewritten a thousand times and everything that was left from its origin would be the word "and" and the Little Blind Text should turn around and return to its own, safe country.
+            </p>     
+            <p class="year">
+                <strong>37</strong> 
+                <span>Years of Experience In Business</span>
+            </p>
+            </div>      
+        </div>
+
         <div id="wp-products">
             <h2>SẢN PHẨM CỦA CHÚNG TÔI</h2>
             <ul id="list-products">
                 <div class="item">
-                    <img src="assets/images/prod-5.jpg" alt="">
+                    <img src="assets/images/whisky-5.jpg" alt="">
                     <div class="stars">
                         <span>
                             <img src="assets/images/star.png" alt="">
@@ -106,7 +128,7 @@
 
 
                 <div class="item">
-                    <img src="assets/images/prod-4.jpg" alt="">
+                    <img src="assets/images/rum-6.jpg" alt="">
                     <div class="stars">
                         <span>
                             <img src="assets/images/star.png" alt="">
@@ -132,7 +154,7 @@
 
 
                 <div class="item">
-                    <img src="assets/images/prod-3.jpg" alt="">
+                    <img src="assets/images/rum-5.jpg" alt="">
                     <div class="stars">
                         <span>
                             <img src="assets/images/star.png" alt="">
@@ -155,58 +177,12 @@
                     <div class="desc">Rum</div>
                     <div class="price">$69.00</div>
                 </div>
-                <div class="item">
-                    <img src="assets/images/prod-2.jpg" alt="">
-                    <div class="stars">
-                        <span>
-                            <img src="assets/images/star.png" alt="">
-                        </span>
-                        <span>
-                            <img src="assets/images/star.png" alt="">
-                        </span>
-                        <span>
-                            <img src="assets/images/star.png" alt="">
-                        </span>
-                        <span>
-                            <img src="assets/images/star.png" alt="">
-                        </span>
-                        <span>
-                            <img src="assets/images/star.png" alt="">
-                        </span>
-                    </div>
+                
 
-                    <div class="name">Jim Beam Kentucky Straight</div>
-                    <div class="desc">Gin</div>
-                    <div class="price">$69.00</div>
-                </div>
+                
 
                 <div class="item">
-                    <img src="assets/images/prod-1.jpg" alt="">
-                    <div class="stars">
-                        <span>
-                            <img src="assets/images/star.png" alt="">
-                        </span>
-                        <span>
-                            <img src="assets/images/star.png" alt="">
-                        </span>
-                        <span>
-                            <img src="assets/images/star.png" alt="">
-                        </span>
-                        <span>
-                            <img src="assets/images/star.png" alt="">
-                        </span>
-                        <span>
-                            <img src="assets/images/star.png" alt="">
-                        </span>
-                    </div>
-
-                    <div class="name">Bacardi 151</div>
-                    <div class="desc">Brandy</div>
-                    <div class="price">$49.00</div>
-                </div>
-
-                <div class="item">
-                    <img src="assets/images/pod-2.jpg" alt="">
+                    <img src="assets/images/whisky-6.jpg" alt="">
                     <div class="stars">
                         <span>
                             <img src="assets/images/star.png" alt="">
@@ -229,84 +205,8 @@
                     <div class="desc">Whiskey</div>
                     <div class="price">$49.00</div>
                 </div>
-
                 <div class="item">
-                    <img src="assets/images/prod-9.jpg" alt="">
-                    <div class="stars">
-                        <span>
-                            <img src="assets/images/star.png" alt="">
-                        </span>
-                        <span>
-                            <img src="assets/images/star.png" alt="">
-                        </span>
-                        <span>
-                            <img src="assets/images/star.png" alt="">
-                        </span>
-                        <span>
-                            <img src="assets/images/star.png" alt="">
-                        </span>
-                        <span>
-                            <img src="assets/images/star.png" alt="">
-                        </span>
-                    </div>
-
-                    <div class="name">Bacardi 151</div>
-                    <div class="desc">Brandy</div>
-                    <div class="price">$49.00</div>
-                </div>
-
-                <div class="item">
-                    <img src="assets/images/pod-3.jpg" alt="">
-                    <div class="stars">
-                        <span>
-                            <img src="assets/images/star.png" alt="">
-                        </span>
-                        <span>
-                            <img src="assets/images/star.png" alt="">
-                        </span>
-                        <span>
-                            <img src="assets/images/star.png" alt="">
-                        </span>
-                        <span>
-                            <img src="assets/images/star.png" alt="">
-                        </span>
-                        <span>
-                            <img src="assets/images/star.png" alt="">
-                        </span>
-                    </div>
-
-                    <div class="name">Seleccion Suprema</div>
-                    <div class="desc">Tequila</div>
-                    <div class="price">$329.99</div>
-                </div>
-
-                <div class="item">
-                    <img src="assets/images/pod-4.jpg" alt="">
-                    <div class="stars">
-                        <span>
-                            <img src="assets/images/star.png" alt="">
-                        </span>
-                        <span>
-                            <img src="assets/images/star.png" alt="">
-                        </span>
-                        <span>
-                            <img src="assets/images/star.png" alt="">
-                        </span>
-                        <span>
-                            <img src="assets/images/star.png" alt="">
-                        </span>
-                        <span>
-                            <img src="assets/images/star.png" alt="">
-                        </span>
-                    </div>
-
-                    <div class="name">JOSE CUERVO SILVER</div>
-                    <div class="desc">Tequila</div>
-                    <div class="price">$49.00</div>
-                </div>
-
-                <div class="item">
-                    <img src="assets/images/prod-7.jpg" alt="">
+                    <img src="assets/images/vodka-6.jpg" alt="">
                     <div class="stars">
                         <span>
                             <img src="assets/images/star.png" alt="">
@@ -330,19 +230,8 @@
                     <div class="price">$69.00</div>
                 </div>
             </ul>
-            <div class="list-page">
-                <div class="item">
-                    <a href="">1</a>
-                </div>
-                <div class="item">
-                    <a href="">2</a>
-                </div>
-                <div class="item">
-                    <a href="">3</a>
-                </div>
-                <div class="item">
-                    <a href="">4</a>
-                </div>
+            <div class="more-product">
+               <a href="">Xem Tất Cả Sản Phẩm </a>
             </div>
         </div>
 
@@ -356,120 +245,6 @@
             <div class="box-right"></div>
         </div>
 
-        <div id="comment">
-            <h2>NHẬN XÉT CỦA KHÁCH HÀNG</h2>
-            <div id="comment-body">
-                <div class="prev">
-                    <a href="#">
-                        <img src="assets/images/prev.png" alt="">
-                    </a>
-                </div>
-                <ul id="list-comment">
-                    <li class="item">
-                        <div class="avatar">
-                            <img src="assets/images/avatar_1.png" alt="">
-
-                        </div>
-                        <div class="stars">
-                            <span>
-                                <img src="assets/images/star.png" alt="">
-                            </span>
-                            <span>
-                                <img src="assets/images/star.png" alt="">
-                            </span>
-                            <span>
-                                <img src="assets/images/star.png" alt="">
-                            </span>
-                            <span>
-                                <img src="assets/images/star.png" alt="">
-                            </span>
-                            <span>
-                                <img src="assets/images/star.png" alt="">
-                            </span>
-                        </div>
-                        <div class="name">Nguyễn Đình Vũ</div>
-
-                        <div class="text">
-                            <p>Lorem Ipsum is simply dummy text of the printing and
-                                typesetting industry. Lorem Ipsum has been the industry's
-                                standard dummy text ever since the 1500s, when an unknown
-                                printer took a galley of type and scrambled it to make a type
-                                specimen book.</p>
-                        </div>
-                    </li>
-                    <li class="item">
-                        <div class="avatar">
-                            <img src="assets/images/avatar_1.png" alt="">
-
-                        </div>
-                        <div class="stars">
-                            <span>
-                                <img src="assets/images/star.png" alt="">
-                            </span>
-                            <span>
-                                <img src="assets/images/star.png" alt="">
-                            </span>
-                            <span>
-                                <img src="assets/images/star.png" alt="">
-                            </span>
-                            <span>
-                                <img src="assets/images/star.png" alt="">
-                            </span>
-                            <span>
-                                <img src="assets/images/star.png" alt="">
-                            </span>
-                        </div>
-                        <div class="name">Trần Ngọc Sơn</div>
-
-                        <div class="text">
-                            <p>Lorem Ipsum is simply dummy text of the printing and
-                                typesetting industry. Lorem Ipsum has been the industry's
-                                standard dummy text ever since the 1500s, when an unknown
-                                printer took a galley of type and scrambled it to make a type
-                                specimen book.</p>
-                        </div>
-                    </li>
-                    <li class="item">
-                        <div class="avatar">
-                            <img src="assets/images/avatar_1.png" alt="">
-
-                        </div>
-                        <div class="stars">
-                            <span>
-                                <img src="assets/images/star.png" alt="">
-                            </span>
-                            <span>
-                                <img src="assets/images/star.png" alt="">
-                            </span>
-                            <span>
-                                <img src="assets/images/star.png" alt="">
-                            </span>
-                            <span>
-                                <img src="assets/images/star.png" alt="">
-                            </span>
-                            <span>
-                                <img src="assets/images/star.png" alt="">
-                            </span>
-                        </div>
-                        <div class="name">Nguyễn Trần Vi</div>
-
-                        <div class="text">
-                            <p>Lorem Ipsum is simply dummy text of the printing and
-                                typesetting industry. Lorem Ipsum has been the industry's
-                                standard dummy text ever since the 1500s, when an unknown
-                                printer took a galley of type and scrambled it to make a type
-                                specimen book.</p>
-                        </div>
-                    </li>
-                </ul>
-                <div class="next">
-                    <a href="#">
-                        <img src="assets/images/next.png" alt="">
-                    </a>
-                </div>
-            </div>
-        </div>
-
         <div id="footer">
             <div class="box">
                 <div class="logo">
@@ -481,13 +256,13 @@
                 <h3>NỘI DUNG</h3>
                 <ul class="quick-menu">
                     <div class="item">
-                        <a href="">Trang chủ</a>
+                        <a href="#">Trang chủ</a>
                     </div>
                     <div class="item">
-                        <a href="">Sản phẩm</a>
+                        <a href="#wp-products">Sản phẩm</a>
                     </div>
                     <div class="item">
-                        <a href="">Blog</a>
+                        <a href="">Giới Thiệu</a>
                     </div>
                     <div class="item">
                         <a href="">Liên hệ</a>
