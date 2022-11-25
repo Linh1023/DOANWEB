@@ -1,6 +1,7 @@
 //
 window.onload=function(){
     addTableProducts(); 
+    eventab();
 }
 //khung them san phẩm
 
@@ -102,4 +103,51 @@ function addKhungSuaSanPham(masp) {
 
 function stringtoNum(str,char){
     return Number(str.split(char || '.').join(''));
+}
+
+
+
+//eventab
+function eventab(){
+    const opensanpham=document.querySelector('.js-opensanpham')
+    const khungsanpham=document.querySelector('.js-sanpham')
+    const opendonhang=document.querySelector('.js-opendonhang')
+    const khungdonhang=document.querySelector('.js-donhang')
+    const openkhachhang=document.querySelector('.js-openkhachhang')
+    const khungkhachhang=document.querySelector('.js-khachhang')
+    const opentrangchu=document.querySelector('.js-opentrangchu')
+    const khungtrangchu=document.querySelector('.js-trangchu')
+    
+    function showsanpham(){
+        khungsanpham.classList.add('open')
+        khungdonhang.classList.remove('open')
+        khungkhachhang.classList.remove('open')
+        khungtrangchu.classList.remove('open')
+    }
+    opensanpham.addEventListener('click',showsanpham)
+
+    function showdonhang(){
+        khungdonhang.classList.add('open')
+        khungkhachhang.classList.remove('open')
+        khungsanpham.classList.remove('open')
+        khungtrangchu.classList.remove('open')
+    }
+    opendonhang.addEventListener('click',showdonhang)
+
+    function showkhachhang(){
+        khungkhachhang.classList.add('open')
+        khungdonhang.classList.remove('open')
+        khungsanpham.classList.remove('open')
+        khungtrangchu.classList.remove('open')
+    }
+    openkhachhang.addEventListener('click',showkhachhang)
+        
+    
+    function showtrangchu(){
+        khungtrangchu.classList.add('open')
+        khungdonhang.classList.remove('open')
+        khungsanpham.classList.remove('open')
+        khungkhachhang.classList.remove('open')
+    }
+    opentrangchu.addEventListener('click',showtrangchu)
 }

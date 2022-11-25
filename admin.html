@@ -5,10 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web Since 1985</title>
-    <link rel="shortcut icon" href="/web_shop_ban_hang/web_shop_ban_hang-main/assets/images/wine-glass.png" />
-    <link rel="stylesheet" href="/assets/css/admin.css">
-    <link rel="stylesheet" href="/assets/fonts/themify-icons/themify-icons.css">
-    <script src="/assets/js/admin.js"></script>
+    <link rel="shortcut icon" href="./web_shop_ban_hang/web_shop_ban_hang-main/assets/images/wine-glass.png" />
+    <link rel="stylesheet" href="./assets/css/admin.css">
+    <link rel="stylesheet" href="./assets/fonts/themify-icons/themify-icons.css">
+    <script src="./assets/js/admin.js"></script>
     <script src="./assets/js/products.js"></script>
 </head>
 <body>
@@ -18,7 +18,7 @@
         </div>
         <div class="container">
             <!-- Menu -->
-            <aside class="sidebar">
+                <aside class="sidebar">
                 <ul class="nav">
                     <li class="nav-title">MENU</li>
                     <li class="nav-item js-opentrangchu"><a class="nav-link active "><i class="mr-6 ti-home"></i>Trang Chủ</a></li>
@@ -32,9 +32,11 @@
                     </li>
                 </ul>
             </aside>
+            
             <!-- Khung hiển thị chính -->
             <div class="main">
-
+                <!-- trangchu -->
+                <div class="js-trangchu">hi</div>
                 <!-- Sản Phẩm -->
                 <div class="sanpham js-sanpham">
                     <table class="table-header">
@@ -59,7 +61,7 @@
                             <option value="ten">Tìm theo tên</option>
                         </select>
                         <input type="text" placeholder="Tìm kiếm..." onkeyup="timKiemSanPham(this)"> -->
-                        <button onclick="document.getElementById('khungThemSanPham').style.transform = 'scale(1)'; autoMaSanPham()">
+                        <button onclick="document.getElementById('khungThemSanPham').style.transform = 'scale(1)';">
                             Thêm sản phẩm
                         </button>
                     </div>
@@ -122,59 +124,7 @@
 
 
                     <div id="khungSuaSanPham" class="overclass" >
-                        <!-- <span class="close" onclick="this.parentElement.style.transform = 'scale(0)';"><i class="ti-close"></i></span>
-                        <table class="overlayTable table-outline table-content table-header">
-                            <tr>
-                                <th colspan="2">Sửa Sản Phẩm</th>
-                            </tr>
-                            <tr>
-                                <td>Mã sản phẩm:</td>
-                                <td><input type="text" id="maspThem"></td>
-                            </tr>
-                            <tr>
-                                <td>Tên sản phẩm:</td>
-                                <td><input type="text"></td>
-                            </tr>
-                            <tr>
-                                <td>Thương Hiệu:</td>
-                                <td>
-                                    <select name="chonCompany" onchange="autoMaSanPham(this.value)">
-                                        <script>
-                                            var company = ["Whisky","Rum","Vodka"];
-                                            for(var c of company) {
-                                                document.writeln(`<option value="`+c+`">`+c+`</option>`);
-                                            }
-                                        </script>
-                                    </select>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Hình:</td>
-                                <td>
-                                    <img class="hinhDaiDien" id="anhDaiDienSanPhamThem" src="">
-                                    <input type="file" accept="image/*" onchange="capNhatAnhSanPham(this.files, 'anhDaiDienSanPhamThem')">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Giá tiền ($):</td>
-                                <td><input type="text"></td>
-                            </tr>
-                            <tr>
-                                <td>Số sao (số nguyên 0->5):</td>
-                                <td><input type="text"></td>
-                            </tr>
-                            <tr>
-                                <td>Nồng độ:</td>
-                                <td><input type="text"></td>
-                            </tr>
-                            <tr>
-                                <td>Dung tích:</td>
-                                <td><input type="text"></td>
-                            </tr>
-                            <tr>
-                                <td colspan="2" class="table-footer"> <button onclick="themSanPham()">THÊM</button> </td>
-                            </tr>
-                        </table> -->
+                        
                     </div>
 
                 </div> 
@@ -246,41 +196,14 @@
                     </div>
                 </div> <!-- // khach hang -->
             </div> <!-- // main -->
-            <div class="clear"></div>
         </div>
+        <div class="clear"></div>
 
         <footer>
         </footer>
     </div>
             <script>
-                const opensanpham=document.querySelector('.js-opensanpham')
-                const khungsanpham=document.querySelector('.js-sanpham')
-
-                const opendonhang=document.querySelector('.js-opendonhang')
-                const khungdonhang=document.querySelector('.js-donhang')
-
-                const openkhachhang=document.querySelector('.js-openkhachhang')
-                const khungkhachhang=document.querySelector('.js-khachhang')
                 
-                function showsanpham(){
-                    khungsanpham.classList.add('open')
-                    khungdonhang.classList.remove('open')
-                    khungkhachhang.classList.remove('open')
-                }
-                opensanpham.addEventListener('click',showsanpham)
-
-                function showdonhang(){
-                    khungdonhang.classList.add('open')
-                    khungkhachhang.classList.remove('open')
-                    khungsanpham.classList.remove('open')
-                }
-                opendonhang.addEventListener('click',showdonhang)
-                function showkhachhang(){
-                    khungkhachhang.classList.add('open')
-                    khungdonhang.classList.remove('open')
-                    khungsanpham.classList.remove('open')
-                }
-                openkhachhang.addEventListener('click',showkhachhang)
             </script>
 </body>
 </html>
