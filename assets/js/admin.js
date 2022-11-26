@@ -266,7 +266,7 @@ function xoaSanPham(masp, tensp) {
         // Vẽ lại table 
         addTableProducts();
         document.getElementById('khungSuaSanPham').style.transform = 'scale(0)';
-        document.getElementById('khungSuaSanPham').style.transform = 'scale(1)';
+  
 
     }
 }
@@ -277,11 +277,14 @@ function xoaAnhSanPham(hinh){
     {
         if(a.hinh==hinh){
             a.hinh==null;
+            alert("hi"+a.tensp)
         }
     }
     setalcoholList(alcoholList);
     addTableProducts();
-    alert('Đã xóa ảnh');
+    alert('Đã xóa ảnh ');
+    document.getElementById('khungSuaSanPham').style.transform = 'scale(0)';
+    // document.getElementById('khungSuaSanPham').style.transform = 'scale(1)';
 }
 // 8888888888888888888888888888888888888 Đơn hàng
 var TONGTIEN

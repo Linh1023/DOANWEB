@@ -151,6 +151,17 @@ table{
     height: 100px;
     position: static;
 }
+.sanpham #khungSuaSanPham tr td a{
+    color: rgb(252, 252, 252);
+    text-decoration: underline;
+    font-size: 20px;
+}
+.sanpham #khungSuaSanPham tr td a:hover{
+    /* background-color: rgba(255, 0, 0, 0.205); */
+    color:red;
+    cursor: pointer;
+}
+
 
 .sanpham > .table-content td:hover img{
     height: 120px;
