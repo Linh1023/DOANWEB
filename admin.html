@@ -16,7 +16,7 @@
         <div class="header">
             <h2>Since 1985 - Admin</h2>
         </div>
-        <div class="container">
+        <div class="bheader"></div>
             <!-- Menu -->
                 <aside class="sidebar">
                 <ul class="nav">
@@ -36,7 +36,7 @@
             <!-- Khung hiển thị chính -->
             <div class="main">
                 <!-- trangchu -->
-                <div class="js-trangchu">hi</div>
+                <div class="js-trangchu trangchu">hi</div>
                 <!-- Sản Phẩm -->
                 <div class="sanpham js-sanpham">
                     <table class="table-header">
@@ -56,11 +56,6 @@
                     <div class="table-content"> 
                     </div>
                     <div class="table-footer">
-                        <!-- <select name="kieuTimSanPham">
-                            <option value="ma">Tìm theo mã</option>
-                            <option value="ten">Tìm theo tên</option>
-                        </select>
-                        <input type="text" placeholder="Tìm kiếm..." onkeyup="timKiemSanPham(this)"> -->
                         <button onclick="document.getElementById('khungThemSanPham').style.transform = 'scale(1)';">
                             Thêm sản phẩm
                         </button>
@@ -68,7 +63,7 @@
 
                     <div id="khungThemSanPham" class="overclass">
                         <span class="close" onclick="this.parentElement.style.transform = 'scale(0)';"><i class="ti-close"></i></span>
-                        <table class="overlayTable table-outline table-content table-header">
+                        <table class="overlayTable table-header table-content">
                             <tr>
                                 <th colspan="2">Thêm Sản Phẩm</th>
                             </tr>
@@ -83,7 +78,7 @@
                             <tr>
                                 <td>Thương Hiệu:</td>
                                 <td>
-                                    <select name="chonCompany" onchange="autoMaSanPham(this.value)">
+                                    <select name="chonCompany">
                                         <script>
                                             var company = ["Whisky","Rum","Vodka"];
                                             for(var c of company) {
@@ -122,10 +117,7 @@
                         </table>
                     </div>
 
-
-                    <div id="khungSuaSanPham" class="overclass" >
-                        
-                    </div>
+                    <div id="khungSuaSanPham" class="overclass" ></div>
 
                 </div> 
 
@@ -163,7 +155,7 @@
                         </select>
                         <input type="text" placeholder="Tìm kiếm..." onkeyup="timKiemDonHang(this)">
                     </div>
-                    <div class="clear"></div>
+                    <!-- <div class="clear"></div> -->
 
                 </div> <!-- // don hang -->
 
@@ -196,7 +188,6 @@
                     </div>
                 </div> <!-- // khach hang -->
             </div> <!-- // main -->
-        </div>
         <div class="clear"></div>
 
         <footer>

@@ -26,7 +26,10 @@ li{
 table{
     border-collapse:collapse;
 }
-
+.action{
+    background-color: var(--colorba);
+    border-left: 3px solid #2d40e7;
+}
 
 
 
@@ -52,6 +55,7 @@ table{
     top:0;
     left: 0;
     right: 0;
+    z-index: 10;
     background-color: var(--colorba);
 
 }
@@ -59,10 +63,8 @@ table{
     line-height: 75px;
     text-align: center;
 }
-.container{
+.bheader{
     padding: 85px 10px 10px 10px;
-    
-    
 }   
 .sidebar{
     float: left;
@@ -86,7 +88,8 @@ table{
 
 }
 .sidebar .nav-item:hover{
-    background-color: var(--colorba); 
+    /* background-color: var(--colorba); */
+    border-left: 3px solid #2d40e7;
 }
 .main{
     width:calc(100% - 130px);
@@ -95,8 +98,10 @@ table{
     flex-direction: column;
     padding-left: 5px;
 }
-
-
+/* trang chu */
+.trangchu{
+    display: none;
+}
 /* san pham */
 .sanpham{
     display: none;
@@ -133,6 +138,23 @@ table{
 .table-content .tooltip:hover{
     background-color: rgba(0, 0, 0, 0.205);
 }
+.sanpham tr td{
+    position: relative;
+}
+.sanpham tr td img{
+    height: 0;
+    position: absolute;
+    top:0;
+    left:0;
+}
+.sanpham #khungSuaSanPham tr td img{
+    height: 100px;
+    position: static;
+}
+
+.sanpham > .table-content td:hover img{
+    height: 120px;
+}
 .table-footer{
     width:100%;
     padding:10px;
@@ -158,6 +180,7 @@ table{
     bottom: 0;
     right:0;
     left:0;
+    z-index: 11;
     background-color: rgba(0, 0, 0, 0.605);
 }
 
@@ -226,7 +249,5 @@ table{
 }
 /* -Đơn hàng- */
 .khachhang{
-    
     display: none;
-
 }
