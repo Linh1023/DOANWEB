@@ -92,7 +92,7 @@ function addKhungSuaSanPham(masp) {
             <td>`
     if(sp.hinh!=null){
         xuat+= `<img class="hinhDaiDien" id="anhDaiDienSanPhamThem" src="`+sp.hinh+`">
-        <a onclick="xoaAnhSanPham('`+sp.hinh+`')">Xóa hình</a>`
+        <a onclick="xoaAnhSanPham('`+sp.masp+`')">Xóa hình</a>`
     }
     xuat+=`
                 
@@ -116,7 +116,7 @@ function addKhungSuaSanPham(masp) {
             <td><input type="text" value="`+sp.dungtich+`"></td>
         </tr>
         <tr>
-            <td colspan="2" class="table-footer"><button onclick="suaSanPham('`+sp.masp+`')">LƯU THAY ĐỔI</button> </td>
+            <td colspan="2" class="table-footer"><button onclick="suaSanPham(`+sp.masp+`)">LƯU THAY ĐỔI</button> </td>
         </tr>
     </table>`
     var khung = document.getElementById('khungSuaSanPham');
@@ -137,8 +137,7 @@ function capNhatAnhSanPham(files, id) {
     if (files[0]) {
         reader.readAsDataURL(files[0]);
     }
-} 
-
+}
 function layThongTinSanPhamTuTable(id) {
     //lấy dữ liệu trong thẻ html
     var khung = document.getElementById(id);
@@ -184,6 +183,7 @@ function layThongTinSanPhamTuTable(id) {
         alert('Lỗi: ' + e.toString());
         return false;
     }
+
 }
 //them san pham
 function themSanPham(){
@@ -260,32 +260,31 @@ function xoaSanPham(masp, tensp) {
                 alcoholList.splice(i, 1);
             }
         }
-        // Lưu vào localstorage
+            // Lưu vào localstorage
         setalcoholList(alcoholList);
 
-        // Vẽ lại table 
+        // Vẽ lại table
         addTableProducts();
-        document.getElementById('khungSuaSanPham').style.transform = 'scale(0)';
-  
-
     }
 }
 
 //hàm xoa hinh san pham
-function xoaAnhSanPham(hinh){
+function xoaAnhSanPham(masp){        
     for(var a of alcoholList)
     {
-        if(a.hinh==hinh){
-            a.hinh==null;
-            alert("hi"+a.tensp)
+        if(a.masp==masp){
+            a.hinh=null;
         }
     }
+    // alert('ĐÃ XÓA ẢNH')
+    //lưu lại dữ liệu
     setalcoholList(alcoholList);
+    // Vẽ lại table
     addTableProducts();
-    alert('Đã xóa ảnh ');
-    document.getElementById('khungSuaSanPham').style.transform = 'scale(0)';
-    // document.getElementById('khungSuaSanPham').style.transform = 'scale(1)';
-}
+    addKhungSuaSanPham(masp);
+    previewSrc=null;
+    // document.getElementById('khungSuaSanPham').style.transform = 'scale(0)';
+}   
 // 8888888888888888888888888888888888888 Đơn hàng
 var TONGTIEN
 function addTableDonHang() {

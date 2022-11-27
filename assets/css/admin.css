@@ -71,6 +71,7 @@ table{
     width: 130px;
     height: auto;
     position: fixed;
+    z-index: 10;
 
 }
 .sidebar li{
@@ -146,6 +147,7 @@ table{
     position: absolute;
     top:0;
     left:0;
+    z-index: 5;
 }
 .sanpham #khungSuaSanPham tr td img{
     height: 100px;
