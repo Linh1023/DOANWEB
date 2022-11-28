@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rum</title>
+    <link rel="stylesheet" href="./assets/css/Sanpham.css" />
+    <link rel="shortcut icon" href="assets/images/wine-glass.png" />
+    <script src="./assets/js/Products.js"></script>
+    <script src="./assets/js/sanpham.js"></script>
+  </head>
+  <body>
+    <div id="wrapper">
+      <div id="header">
+        <a href="" class="logo">
+          <img src="assets/images/logowine.png" alt="" />
+        </a>
+        <div id="menu">
+          <div class="item">
+            <a href="">Trang chủ</a>
+          </div>
+          <div class="item">
+            <li>
+              <a href="#wp-products">
+                Sản phẩm
+                <img src="./assets/images/chevron.png" alt="" />
+              </a>
+              <ul class="subnav">
+                <li><a href="Whiskey.html" target="_self">Whisky</a></li>
+                <li><a href="Rum.html" target="_self">Rum</a></li>
+                <li><a href="Vodka.html" target="_self">Vodka</a></li>
+              </ul>
+            </li>
+          </div>
+          <div class="item">
+            <a href="">Giới Thiệu</a>
+          </div>
+          <div class="item">
+            <a href="#footer">Liên hệ</a>
+          </div>
+        </div>
+        <div id="actions">
+          <div class="item">
+            <a href=""><img src="./assets/images/user.png" alt="" /></a>
+          </div>
+          <div class="item">
+            <a href=""><img src="./assets/images/cart.png" alt="" /></a>
+          </div>
+        </div>
+      </div>
+
+      <div id="wp-products">
+        <h2>SẢN PHẨM CỦA CHÚNG TÔI</h2>
+        <div id="buttons">
+          <div class="button-value">All</div>
+          <div class="button-value">Whiskey</div>
+          <div class="button-value">Rum</div>
+          <div class="button-value">Vodka</div>
+        </div>
+        <section id="list-products">
+          
+         
+        </section>
+      </div>
+    </div>
+    <script>
+      //Lấy dssp trong localstorage
+      var jsonlistProducts = localStorage.getItem("alcoholList");
+      var listProducts = JSON.parse(jsonlistProducts);
+      //Chuyển ds đối tượng SP sang HTML
+      var HTML = ChuyenDSDTSPthanhHTML(alcoholList);
+      //Gắn đoạn HTML vào ListProducts
+      var nodeProducts = document.getElementById("list-products");
+      nodeProducts.innerHTML = HTML;
+    </script>
+  </body>
+</html>
