@@ -1,46 +1,46 @@
 var alcoholList=[
         {
-            "masp":"001",
+            "masp":"111",
             "tensp":"HANGAR 1 ROSE",
             "thuonghieu":"Vodka",
             "hinh":"/assets/images/rum-4.jpg",
             "gia":"1.100.000",
-            "sosao":"5",
+            "sosao":"1",
             "nongdo":"30",
             "dungtich":"750"
         },
         {
-            "masp":"002",
+            "masp":"112",
             "tensp":"JIM BEAM",
             "thuonghieu":"Whysky",
             "hinh":"/assets/images/rum-4.jpg",
             "gia":"260.000",
-            "sosao":"5",
+            "sosao":"3",
             "nongdo":"40",
             "dungtich":"750"
         },
         {
-            "masp":"003",
+            "masp":"113",
             "tensp":"RUM MATUSALEM 23 NĂM",
             "thuonghieu":"Rum",
             "hinh":"/assets/images/rum-4.jpg",
             "gia":"2.200.000",
-            "sosao":"5",
+            "sosao":"3",
             "nongdo":"40",
             "dungtich":"70"
         },
         {
-            "masp":"004",
+            "masp":"114",
             "tensp":"HANGAR 1 STRAIGHT VODKA",
             "thuonghieu":"Vodka",
             "hinh":"/assets/images/rum-4.jpg",
             "gia":"1.045.000",
-            "sosao":"5",
+            "sosao":"2",
             "nongdo":"40",
             "dungtich":"750"
         },
         {
-            "masp":"005",
+            "masp":"115",
             "tensp":"BALVENIE 12 NĂM",
             "thuonghieu":"Whysky",
             "hinh":"/assets/images/rum-4.jpg",
@@ -50,7 +50,7 @@ var alcoholList=[
             "dungtich":"700"
         },
         {
-            "masp":"006",
+            "masp":"116",
             "tensp":"RUM MATUSALEM 7 NĂM",
             "thuonghieu":"Rum",
             "hinh":"/assets/images/rum-4.jpg",
@@ -60,7 +60,7 @@ var alcoholList=[
             "dungtich":"700"
         },
         {
-            "masp":"007",
+            "masp":"117",
             "tensp":"TITO’S HANDMADE VODKA",
             "thuonghieu":"Vodka",
             "hinh":"/assets/images/rum-4.jpg",
@@ -70,7 +70,7 @@ var alcoholList=[
             "dungtich":"750"
         },
         {
-            "masp":"008",
+            "masp":"118",
             "tensp":"RƯỢU MONKEY SHOULDER",
             "thuonghieu":"Whysky",
             "hinh":"/assets/images/rum-4.jpg",
@@ -80,7 +80,7 @@ var alcoholList=[
             "dungtich":"700"
         },
         {
-            "masp":"009",
+            "masp":"119",
             "tensp":"RUM MATUSALEM 15 NĂM",
             "thuonghieu":"Rum",
             "hinh":"/assets/images/rum-4.jpg",
