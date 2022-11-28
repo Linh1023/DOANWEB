@@ -28,6 +28,7 @@ html {
     right: 0;
     height: 100px;
     z-index: 5;
+    border-bottom:1px solid rgba(44, 35, 35, 0.164) ;
 }
 
 #header .logo a img {
@@ -41,18 +42,20 @@ html {
 }
 
 #menu .item {
-    margin: 0px 25px;
-    color: #ccc;
     text-transform: uppercase;
-
+    cursor: pointer;
+   line-height:100px;
+   padding:0 50px;
+  border: 1px solid rgba(0, 0, 0, 0.064);
 }
 
-#menu .item :hover {
+#menu .item:hover {
     color: #000;
+    background-color: rgba(0, 0, 0, 0.162);
 }
 
 #menu .item a {
-    color: #626A67;
+    color: #1e2824;
     text-decoration: none;
     display: block;
 }

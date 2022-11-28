@@ -1,3 +1,5 @@
+// ảnh  1000 x 1500
+
 var alcoholList=[
         {
             "masp":"111",
@@ -23,7 +25,7 @@ var alcoholList=[
             "masp":"113",
             "tensp":"RUM MATUSALEM 23 NĂM",
             "thuonghieu":"Rum",
-            "hinh":"/assets/images/rum-4.jpg",
+            "hinh":"/assets/images/rum-5.jpg",
             "gia":"2.200.000",
             "sosao":"3",
             "nongdo":"40",

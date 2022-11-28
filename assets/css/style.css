@@ -15,7 +15,7 @@ html {
     width: 100%;
     height: 100vh;
 }
-
+/* 
 #header {
     width: 100%;
     padding: 0px 30px;
@@ -28,7 +28,8 @@ html {
     left: 0;
     right: 0;
     height: 100px;
-    z-index: 1;
+    z-index: 5;
+    border-bottom:1px solid rgba(44, 35, 35, 0.164) ;
 }
 
 #header .logo a img {
@@ -42,18 +43,20 @@ html {
 }
 
 #menu .item {
-    margin: 0px 25px;
-    color: #ccc;
     text-transform: uppercase;
-
+    cursor: pointer;
+   line-height:100px;
+   padding:0 50px;
+  border: 1px solid rgba(0, 0, 0, 0.035);
 }
 
-#menu .item :hover {
+#menu .item:hover {
     color: #000;
+    background-color: rgba(0, 0, 0, 0.162);
 }
 
 #menu .item a {
-    color: #626A67;
+    color: #1e2824;
     text-decoration: none;
     display: block;
 }
@@ -63,6 +66,59 @@ html {
     text-decoration: none;
     text-align: left;
 }
+
+ */
+ #header {
+    width: 100%;
+    padding: 0px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    background-color: #fff;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100px;
+    z-index: 5;
+    border-bottom:1px solid rgba(44, 35, 35, 0.164) ;
+}
+
+#header .logo a img {
+    width: 75%;
+}
+
+#menu {
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+#menu .item {
+    text-transform: uppercase;
+    cursor: pointer;
+   line-height:100px;
+   padding:0 50px;
+  border: 1px solid rgba(0, 0, 0, 0.035);
+}
+
+#menu .item:hover {
+    color: #000;
+    background-color: rgba(0, 0, 0, 0.162);
+}
+
+#menu .item a {
+    color: #1e2824;
+    text-decoration: none;
+    display: block;
+}
+
+#menu .item li a {
+    color: #626A67;
+    text-decoration: none;
+    text-align: left;
+}
+
 
 #menu .subnav li:hover a {
     color: #000;
