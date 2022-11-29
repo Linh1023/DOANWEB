@@ -250,7 +250,7 @@ function timKiemSanPham(inp,value) {
     var dem=0;
     for (var i=0;i<soitemtrongdanhmuc;i++) {
         //bắt đầu từ item số 6 vì trên menu cũng có 6 class item
-        var item=document.getElementsByClassName("item")[i+6];
+        var item=document.getElementById("list-products").getElementsByClassName("item")[i];
         for(var c of alcoholList)
         if(c.masp==item.getAttribute('value'))
             var td = c.tensp.toLowerCase();
