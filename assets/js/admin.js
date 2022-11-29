@@ -49,7 +49,6 @@ for(var i=0;i < alcoholList.length;i++){
             
     }
      xuat += `</table>`;
-     alert(tc+"hihi")
      tc.innerHTML = xuat;
 }
 //Mở khung sửa sản phẩm

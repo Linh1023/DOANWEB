@@ -187,6 +187,7 @@ html {
 .item-img img{
     width: 290px;
     margin-left: 20px;
+    max-height: 450px;
 }
 
 .item-information{
