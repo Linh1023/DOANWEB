@@ -14,7 +14,7 @@ var alcoholList=[
         {
             "masp":"112",
             "tensp":"JIM BEAM",
-            "thuonghieu":"Whysky",
+            "thuonghieu":"Whisky",
             "hinh":"/assets/images/rum-4.jpg",
             "gia":"260.000",
             "sosao":"3",
@@ -44,7 +44,7 @@ var alcoholList=[
         {
             "masp":"115",
             "tensp":"BALVENIE 12 NĂM",
-            "thuonghieu":"Whysky",
+            "thuonghieu":"Whisky",
             "hinh":"/assets/images/rum-4.jpg",
             "gia":"1.750.000",
             "sosao":"5",
@@ -74,7 +74,7 @@ var alcoholList=[
         {
             "masp":"118",
             "tensp":"RƯỢU MONKEY SHOULDER",
-            "thuonghieu":"Whysky",
+            "thuonghieu":"Whisky",
             "hinh":"/assets/images/rum-4.jpg",
             "gia":"820.000",
             "sosao":"5",
@@ -104,7 +104,7 @@ var alcoholList=[
         {
             "masp":"011",
             "tensp":"CHIVAS 21 NĂM - ROYAL SALUTE 21",
-            "thuonghieu":"Whysky",
+            "thuonghieu":"Whisky",
             "hinh":"/assets/images/rum-4.jpg",
             "gia":"2.550.000",
             "sosao":"5",
@@ -134,7 +134,7 @@ var alcoholList=[
         {
             "masp":"014",
             "tensp":"KILCHOMAN SANAIG",
-            "thuonghieu":"Whysky",
+            "thuonghieu":"Whisky",
             "hinh":"/assets/images/rum-4.jpg",
             "gia":"1.800.000",
             "sosao":"5",
@@ -164,7 +164,7 @@ var alcoholList=[
         {
             "masp":"017",
             "tensp":"NIKKA SESSION",
-            "thuonghieu":"Whysky",
+            "thuonghieu":"Whisky",
             "hinh":"/assets/images/rum-4.jpg",
             "gia":"1.000.000",
             "sosao":"5",
@@ -194,7 +194,7 @@ var alcoholList=[
         {
             "masp":"020",
             "tensp":"JACK DANIEL'S WHITE RABBIT SALOON",
-            "thuonghieu":"Whysky",
+            "thuonghieu":"Whisky",
             "hinh":"/assets/images/rum-4.jpg",
             "gia":"1.550.000",
             "sosao":"5",
@@ -224,7 +224,7 @@ var alcoholList=[
         {
             "masp":"023",
             "tensp":"ILEACH CASK STRENGTH",
-            "thuonghieu":"Whysky",
+            "thuonghieu":"Whisky",
             "hinh":"/assets/images/rum-4.jpg",
             "gia":"1.300.000",
             "sosao":"5",

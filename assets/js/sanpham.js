@@ -1,3 +1,60 @@
+function getalcoholList() {
+    return JSON.parse(window.localStorage.getItem('alcoholList'));
+}
+window.onload=function(){
+    //Lấy dssp trong localstorage
+    // var jsonlistProducts = localStorage.getItem("alcoholList");
+    // var alcoholList = JSON.parse(jsonlistProducts);
+    alcoholList=getalcoholList()||alcoholList;
+    addtable('All');
+}
+function addtable(value){
+    //Chuyển ds đối tượng SP sang HTML
+    var HTML=`<div class="search">
+    <input class="khungtimkiem" type="text" placeholder="Tìm kiếm..." onkeyup="timKiemSanPham(this,'`+value+`')">
+  </div>`;
+    // HTML+=`<input >`
+    HTML += ChuyenDSDTSPthanhHTML(alcoholList,value);
+    //Gắn đoạn HTML vào ListProducts
+    var nodeProducts = document.getElementById("list-products");
+    nodeProducts.innerHTML = HTML;
+
+    if(value=="All")
+    var button=document.getElementsByClassName('button-value')[0];
+    document.getElementsByClassName('button-value')[1].style.background = '#fff';
+    document.getElementsByClassName('button-value')[2].style.background = '#fff';
+    document.getElementsByClassName('button-value')[3].style.background = '#fff';
+    document.getElementsByClassName('button-value')[1].style.color = '#6759ff';
+    document.getElementsByClassName('button-value')[2].style.color = '#6759ff';
+    document.getElementsByClassName('button-value')[3].style.color = '#6759ff';
+    if(value=="Rum")
+    var button=document.getElementsByClassName('button-value')[1];
+    document.getElementsByClassName('button-value')[0].style.background = '#fff';
+    document.getElementsByClassName('button-value')[2].style.background = '#fff';
+    document.getElementsByClassName('button-value')[3].style.background = '#fff';
+    document.getElementsByClassName('button-value')[0].style.color = '#6759ff';
+    document.getElementsByClassName('button-value')[2].style.color = '#6759ff';
+    document.getElementsByClassName('button-value')[3].style.color = '#6759ff';
+    if(value=="Whisky")
+    var button=document.getElementsByClassName('button-value')[2];
+    document.getElementsByClassName('button-value')[1].style.background = '#fff';
+    document.getElementsByClassName('button-value')[0].style.background = '#fff';
+    document.getElementsByClassName('button-value')[3].style.background = '#fff';
+    document.getElementsByClassName('button-value')[1].style.color = '#6759ff';
+    document.getElementsByClassName('button-value')[0].style.color = '#6759ff';
+    document.getElementsByClassName('button-value')[3].style.color = '#6759ff';
+    if(value=="Vodka")
+    var button=document.getElementsByClassName('button-value')[3];
+    document.getElementsByClassName('button-value')[1].style.background = '#fff';
+    document.getElementsByClassName('button-value')[2].style.background = '#fff';
+    document.getElementsByClassName('button-value')[0].style.background = '#fff';
+    document.getElementsByClassName('button-value')[1].style.color = '#6759ff';
+    document.getElementsByClassName('button-value')[2].style.color = '#6759ff';
+    document.getElementsByClassName('button-value')[0].style.color = '#6759ff';
+    button.style.background = '#6759ff';
+    button.style.color = '#fff';
+
+}
 function CreateProduct(masp,tensp,thuonghieu,hinh,gia,sosao,nongdo,dungtich){
     var product = new Object();
     product.masp = masp;
@@ -23,24 +80,54 @@ function CreateProduct(masp,tensp,thuonghieu,hinh,gia,sosao,nongdo,dungtich){
     }
     return product;
 }
+var soitemtrongdanhmuc;
+function ChuyenDSDTSPthanhHTML(alcoholList,value){
+    var dem=0;
+    var giatritren=document.getElementsByClassName('khoanggiatien')[1].value;
+    var giatriduoi=document.getElementsByClassName('khoanggiatien')[0].value;
 
-function ChuyenDSDTSPthanhHTML(alcoholList){
-    var HTMLlistProducts = ' <div class="items"> ';
     for(var i = 0;i<alcoholList.length;i++){
-        var product = alcoholList[i];
-        var htmlProducts = chuyenDTSPthanhHTML(product);
-        HTMLlistProducts = HTMLlistProducts + htmlProducts;
+        if(giatriduoi!=''&&giatritren!='')
+        {  
+            if((alcoholList[i].thuonghieu==value||value=='All')&&(stringtoNum(alcoholList[i].gia)>giatriduoi&&stringtoNum(alcoholList[i].gia)<giatritren)){
+                dem++;
+            }
+        }
+        else
+        if(alcoholList[i].thuonghieu==value||value=='All'){
+            dem++;
+        }
+        soitemtrongdanhmuc=dem;
+    }
+    var HTMLlistProducts = ' <div id="soluongsanpham">Tìm thấy '+dem+' sản phẩm </div> <div class="items">';
+    for(var i = 0;i<alcoholList.length;i++){
+        
+            if(giatriduoi!=''&&giatritren!='')
+            {  
+                if((alcoholList[i].thuonghieu==value||value=='All')&&(stringtoNum(alcoholList[i].gia)>giatriduoi&&stringtoNum(alcoholList[i].gia)<giatritren)){
+                    var product = alcoholList[i];
+                    var htmlProducts = chuyenDTSPthanhHTML(product);
+                    HTMLlistProducts = HTMLlistProducts + htmlProducts;
+                }
+            }
+            else
+            if(alcoholList[i].thuonghieu==value||value=='All'){
+                var product = alcoholList[i];
+                var htmlProducts = chuyenDTSPthanhHTML(product);
+                HTMLlistProducts = HTMLlistProducts + htmlProducts;
+
+
+            }
+
     }
     HTMLlistProducts = HTMLlistProducts + '</div>'
+    
     return HTMLlistProducts;
 }
 
-
-
 function chuyenDTSPthanhHTML(product){
-    var html = ' ';
-    
-   html+=           '<div class="item" onclick="addKhungItem('+product.masp+')">'
+    var html = '';
+   html+=           '<div class="item" onclick="addKhungItem('+product.masp+')" value="'+product.masp+'">'
    html+=                   '<div class="item-img">'
    html+=                       '<img src="'+product.hinh+'" alt="">'
    html+=                   '</div>'
@@ -52,7 +139,7 @@ function chuyenDTSPthanhHTML(product){
    html+=                '<div class="item-information">'
    html+=                   ' <h3 class="item-title">'+product.tensp+'</h3>'
    html+=                   '<div class="item-Category">'+product.thuonghieu+'</div>   '
-   html+=                   '<div class="item-price">'+product.gia+'</div>'
+   html+=                   '<div class="item-price">'+product.gia+'$</div>'
    html+=                '</div>'
    html+=           ' </div>'
 
@@ -147,6 +234,36 @@ function addKhungItem(masp){
     khung.innerHTML = xuat;
     khung.style.transform = 'scale(1)';
 }
+function stringtoNum(str,char){
+    return Number(str.split(char || '.').join(''));
+}
 function numToString(num, char) {
     return num.toLocaleString().split(',').join(char || '.');
+}
+function timKiemSanPham(inp,value) {
+    var text = inp.value.toLowerCase();
+    // alert(text)
+    if(text==""){
+        addtable(value);return;
+    }
+    // Lọc
+    var dem=0;
+    for (var i=0;i<soitemtrongdanhmuc;i++) {
+        //bắt đầu từ item số 6 vì trên menu cũng có 6 class item
+        var item=document.getElementsByClassName("item")[i+6];
+        for(var c of alcoholList)
+        if(c.masp==item.getAttribute('value'))
+            var td = c.tensp.toLowerCase();
+            if(td.indexOf(text)>=0){
+                item.style.display = '';
+                dem++;
+            }
+            else {
+                item.style.display = 'none';
+            }
+        }
+    var sosanphamcu=document.getElementById('soluongsanpham');
+    var sossanphammoi=`Tìm thấy `+dem+` sản phẩm`;
+    sosanphamcu.innerHTML=sossanphammoi;
+    
 }

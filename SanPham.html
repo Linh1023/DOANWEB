@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rum</title>
+    <link rel="stylesheet" href="./assets/js/admin.js">
     <link rel="stylesheet" href="./assets/css/Sanpham.css" />
     <link rel="shortcut icon" href="assets/images/wine-glass.png" />
     <link rel="stylesheet" href="./assets/fonts/themify-icons/themify-icons.css">
@@ -53,13 +54,19 @@
 
       <div id="wp-products">
         <h2>SẢN PHẨM CỦA CHÚNG TÔI</h2>
+        <input placeholder="Giá trị dưới..." class="khoanggiatien" value="" type="number" >$ -
+        <input placeholder="Giá trị trên..." class="khoanggiatien" value="" type="number" >$
+        <!-- <div class="search">
+          <input class="khungtimkiem" type="text" placeholder="Tìm kiếm..." onkeyup="timKiemSanPham(this,)">
+        </div> -->
         <div id="buttons">
-          <div class="button-value">All</div>
-          <div class="button-value">Whiskey</div>
-          <div class="button-value">Rum</div>
-          <div class="button-value">Vodka</div>
+          <input type="button" class="button-value" value="All" onclick="addtable(value)">
+          <input type="button" class="button-value" value="Rum" onclick="addtable(value)">
+          <input type="button" class="button-value" value="Whisky" onclick="addtable(value)">
+          <input type="button" class="button-value" value="Vodka" onclick="addtable(value)">
         </div>
         <section id="list-products">
+          <div id="soluongsanpham"></div>
           
          
         </section>
@@ -69,14 +76,7 @@
     </div>
 
     <script>
-      //Lấy dssp trong localstorage
-      var jsonlistProducts = localStorage.getItem("alcoholList");
-      var listProducts = JSON.parse(jsonlistProducts);
-      //Chuyển ds đối tượng SP sang HTML
-      var HTML = ChuyenDSDTSPthanhHTML(alcoholList);
-      //Gắn đoạn HTML vào ListProducts
-      var nodeProducts = document.getElementById("list-products");
-      nodeProducts.innerHTML = HTML;
+      
     </script>
   </body>
 </html>
