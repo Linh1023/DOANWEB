@@ -127,7 +127,7 @@ function ChuyenDSDTSPthanhHTML(alcoholList,value){
 
 function chuyenDTSPthanhHTML(product){
     var html = '';
-   html+=           '<div class="item" onclick="addKhungItem('+product.masp+')" value="'+product.masp+'">'
+   html+=           '<div class="item" onclick="addKhungItem(`'+product.masp+'`)" value="'+product.masp+'">'
    html+=                   '<div class="item-img">'
    html+=                       '<img src="'+product.hinh+'" alt="">'
    html+=                   '</div>'
@@ -204,7 +204,7 @@ function addKhungItem(masp){
           <div class="contain-price">
               <div class="price">
                   <h3 class="price__heading">GIÁ THAM KHẢO</h3>
-                  <div class="price__coin">`+sp.gia+`<u>đ</u></div>
+                  <div class="price__coin">`+sp.gia+`<u>$</u></div>
                   <div class="price__terms">ĐIỀU KHOẢN <a href="" class="price__terms-link">GIAO HÀNG</a>
                   </div>
               </div>

@@ -116,7 +116,7 @@ function addKhungSuaSanPham(masp) {
             <td><input type="text" value="`+sp.dungtich+`"></td>
         </tr>
         <tr>
-            <td colspan="2" class="table-footer"><button onclick="suaSanPham(`+sp.masp+`)">LƯU THAY ĐỔI</button> </td>
+            <td colspan="2" class="table-footer"><button onclick="suaSanPham('`+sp.masp+`')">LƯU THAY ĐỔI</button> </td>
         </tr>
     </table>`
     var khung = document.getElementById('khungSuaSanPham');

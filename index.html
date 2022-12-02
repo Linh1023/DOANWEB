@@ -6,55 +6,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Since 1985 </title>
+    <link rel="shortcut icon" href="./assets/images/wine-glass.png" />
+    
     <link rel="stylesheet" href="./assets/css/style.css">
-    <link rel="shortcut icon" href="/web_shop_ban_hang/web_shop_ban_hang-main/assets/images/wine-glass.png" />
-    <script src="./assets/js/Products.js">
+    <link rel="stylesheet" href="./assets/css/header.css">
+    <link rel="stylesheet" href="./assets/css/taikhoan.css">
+    <link rel="stylesheet" href="./assets/fonts/themify-icons/themify-icons.css">
 
-    </script>
+    <script src="./assets/js/Products.js"></script>
+    <script src="./assets/js/login.js"></script>
+    <script src="./assets/js/header.js"></script>
+
 
 </head>
-
 <body>
-
-
-    <div id="wrapper">
-        <div id="header">
-            <a href="index.html" target="_parent" class="logo">
-                <img src="assets/images/logowine.png" alt="">
-            </a>
-            <div id="menu">
-                <div class="item">
-                    <a href="./index.html">Trang chủ</a>
-                </div>
-                <div class="item">
-                    <li>
-                        <a href="./SanPham.html">
-                            Sản phẩm
-                            <img src="./assets/images/chevron.png" alt="">
-                        </a>
-                        <ul class="subnav">
-                            <li><a href="Whiskey.html">Whisky</a></li>
-                            <li><a href="Rum.html">Rum</a></li>
-                            <li><a href="Vodka.html">Vodka</a></li>
-                        </ul>
-                    </li>
-                </div>
-                <div class="item">
-                    <a href="#about">Giới Thiệu</a>
-                </div>
-                <div class="item">
-                    <a href="#footer">Liên hệ</a>
-                </div>
-            </div>
-            <div id="actions">
-                <div class="item">
-                    <a href=""><img src="./assets/images/user.png" alt=""></a>
-                </div>
-                <div class="item">
-                    <a href=""><img src="./assets/images/cart.png" alt=""></a>
-                </div>
-            </div>
-        </div>
+    <div id="wrapper" class="container">
+        <script>addheader();</script>
         <div id="banner">
             <div class="box-left">
                 <h2>
@@ -63,7 +30,7 @@
                     <span>THƯỢNG HẠNG</span>
                 </h2>
                 <p>Tastes great…Less filling</p>
-                <button>Mua ngay</button>
+                <button><a href="./SanPham.html">Mua Ngay</a></button>
             </div>
             <div class="box-right">
                 <img src="assets/images/box-right1.4.jpg" alt="">
@@ -79,7 +46,7 @@
         <!--About section-->
         <div id="about" class="content-section">
             <div class="img-about">
-                <img src="/assets/images/about.jpg" alt="">
+                <img src="./assets/images/about.jpg" alt="">
             </div>
             <div class="section">
                 <p class="section-sub-heading">Since 1985</p>
@@ -105,7 +72,7 @@
             <h2>SẢN PHẨM CỦA CHÚNG TÔI</h2>
             <ul id="list-products">
                 <div class="item">
-                    <img src="assets/images/whisky-5.jpg" alt="">
+                    <img class="item-img" src="./assets/images/img-products/SP-15.jpg" alt="">
                     <div class="stars">
                         <span>
                             <img src="assets/images/star.png" alt="">
@@ -124,40 +91,14 @@
                         </span>
                     </div>
 
-                    <div class="name">Black Label</div>
-                    <div class="desc">Whiskey</div>
-                    <div class="price">$49.00</div>
-                </div>
-
-
-                <div class="item">
-                    <img src="assets/images/rum-6.jpg" alt="">
-                    <div class="stars">
-                        <span>
-                            <img src="assets/images/star.png" alt="">
-                        </span>
-                        <span>
-                            <img src="assets/images/star.png" alt="">
-                        </span>
-                        <span>
-                            <img src="assets/images/star.png" alt="">
-                        </span>
-                        <span>
-                            <img src="assets/images/star.png" alt="">
-                        </span>
-                        <span>
-                            <img src="assets/images/star.png" alt="">
-                        </span>
-                    </div>
-
-                    <div class="name">The Glenlivet</div>
+                    <div class="name">RUM DICTADOR AURUM</div>
                     <div class="desc">Rum</div>
-                    <div class="price">$69.00</div>
+                    <div class="price">3.450.000</div>
                 </div>
 
 
                 <div class="item">
-                    <img src="assets/images/rum-5.jpg" alt="">
+                    <img class="item-img" src="./assets/images/img-products/SP-11.jpg" alt="">
                     <div class="stars">
                         <span>
                             <img src="assets/images/star.png" alt="">
@@ -176,42 +117,68 @@
                         </span>
                     </div>
 
-                    <div class="name">Citadelle</div>
+                    <div class="name">CHIVAS 21 NĂM - ROYAL SALUTE 21</div>
+                    <div class="desc">Whisky</div>
+                    <div class="price">2.550.000</div>
+                </div>
+
+
+                <div class="item">
+                    <img class="item-img" src="./assets/images/img-products/SP-16.jpg" alt="">
+                    <div class="stars">
+                        <span>
+                            <img src="assets/images/star.png" alt="">
+                        </span>
+                        <span>
+                            <img src="assets/images/star.png" alt="">
+                        </span>
+                        <span>
+                            <img src="assets/images/star.png" alt="">
+                        </span>
+                        <span>
+                            <img src="assets/images/star.png" alt="">
+                        </span>
+                        <span>
+                            <img src="assets/images/star.png" alt="">
+                        </span>
+                    </div>
+
+                    <div class="name">RƯỢU VODKA BELVEDERE</div>
+                    <div class="desc">Vodka</div>
+                    <div class="price">3.210.000</div>
+                </div>
+
+
+
+
+                <div class="item">
+                    <img class="item-img" src="./assets/images/img-products/SP-9.jpg" alt="">
+                    <div class="stars">
+                        <span>
+                            <img src="assets/images/star.png" alt="">
+                        </span>
+                        <span>
+                            <img src="assets/images/star.png" alt="">
+                        </span>
+                        <span>
+                            <img src="assets/images/star.png" alt="">
+                        </span>
+                        <span>
+                            <img src="assets/images/star.png" alt="">
+                        </span>
+                        <span>
+                            <img src="assets/images/star.png" alt="">
+                        </span>
+                    </div>
+
+                    <div class="name">RUM MATUSALEM 15 NĂM</div>
                     <div class="desc">Rum</div>
-                    <div class="price">$69.00</div>
-                </div>
-
-
-
-
-                <div class="item">
-                    <img src="assets/images/whisky-6.jpg" alt="">
-                    <div class="stars">
-                        <span>
-                            <img src="assets/images/star.png" alt="">
-                        </span>
-                        <span>
-                            <img src="assets/images/star.png" alt="">
-                        </span>
-                        <span>
-                            <img src="assets/images/star.png" alt="">
-                        </span>
-                        <span>
-                            <img src="assets/images/star.png" alt="">
-                        </span>
-                        <span>
-                            <img src="assets/images/star.png" alt="">
-                        </span>
-                    </div>
-
-                    <div class="name">JACKS DANIEL’S NO 7</div>
-                    <div class="desc">Whiskey</div>
-                    <div class="price">$49.00</div>
+                    <div class="price">1.250.000</div>
                 </div>
 
                 
                 <div class="item">
-                    <img src="assets/images/vodka-6.jpg" alt="">
+                    <img class="item-img" src="./assets/images/img-products/SP-2.jpg" alt="">
                     <div class="stars">
                         <span>
                             <img src="assets/images/star.png" alt="">
@@ -230,9 +197,9 @@
                         </span>
                     </div>
 
-                    <div class="name">Old Monk</div>
-                    <div class="desc">Vodka</div>
-                    <div class="price">$69.00</div>
+                    <div class="name">JIM BEAM</div>
+                    <div class="desc">Whiskey</div>
+                    <div class="price">2.600.000</div>
                 </div>
             </ul>
             <div class="more-product">
@@ -285,6 +252,10 @@
         </div>
     </div>
    
+    <script>
+    addContainTaiKhoan();
+    setupEventTaiKhoan();
+    </script>
 </body>
 
 </html>
