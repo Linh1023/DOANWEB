@@ -47,7 +47,7 @@ html {
 
 #banner {
     width: 100%;
-    background: url('./images/bg_2.1.jpg');
+    background: url('/assets/images/bg_2.1.jpg');
     height: 851px;
     margin-top: 100px;
     display: flex;
