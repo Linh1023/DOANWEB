@@ -150,6 +150,7 @@ function checkTaiKhoan() {
     if (!getCurrentUser()) {
         showTaiKhoan(true);
     }
+    else
     alert("Đã Đăng Nhập <3")
 }
 
@@ -198,8 +199,8 @@ function logOut() {
 function addContainTaiKhoan() {
     document.write(`
 	<div class="containTaikhoan">
-        <span class="close" onclick="showTaiKhoan(false);"><i class="ti-close"> </span>
-        <div class="taikhoan">
+    <div class="taikhoan">
+    <span class="close ti-close" onclick="showTaiKhoan(false);"></span>
 
             <ul class="tab-group">
             <li class="tab active"><a href="#login">Đăng nhập</a></li>
