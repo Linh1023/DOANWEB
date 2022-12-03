@@ -154,7 +154,7 @@ function addKhungItem(masp){
     }
     var khung=document.getElementById('khungchitietsanpham');
     var xuat=`
-    <span class="close"  onclick="this.parentElement.style.transform = 'scale(0)';"><i class="ti-close"></i></span>
+    <span class="closes"  onclick="this.parentElement.style.transform = 'scale(0)';"><i class="ti-close"></i></span>
     <div class="grid">
 
     <div class="title">
@@ -196,7 +196,7 @@ function addKhungItem(masp){
                   <a class="part__keyword-tag">`+sp.thuonghieu+`</a>
               </div>
               <div class="product-buy">
-                  <a href="" class="product-buy__btn">MUA HÀNG</a>
+                  <a class="product-buy__btn" onclick="themVaoGioHang(`+sp.masp+`,'`+sp.tensp+`')">Thêm Vào Giỏ Hàng</a>
               </div>
           </div>
       </div>
@@ -266,4 +266,63 @@ function timKiemSanPham(inp,value) {
     var sossanphammoi=`Tìm thấy `+dem+` sản phẩm`;
     sosanphamcu.innerHTML=sossanphammoi;
     
+}
+
+/////////////////////////////////////////////////////////////////// js trong chi tiet san pham
+function themVaoGioHang(masp, tensp) {
+    var user = getCurrentUser();
+    if (!user) {
+        alert('Bạn cần đăng nhập để mua hàng !');
+        showTaiKhoan(true);
+        return;
+    }
+    if (user.off) {
+        alert('Tài khoản của bạn hiện đang bị khóa nên không thể mua hàng!');
+        addAlertBox('Tài khoản của bạn đã bị khóa bởi Admin.', '#aa0000', '#fff', 10000);
+        return;
+    }
+    alert("Đã Thêm Vào giỏ hàng")
+    var t = new Date();
+    var daCoSanPham = false;;
+
+    for (var i = 0; i < user.products.length; i++) { // check trùng sản phẩm
+        if (user.products[i].ma == masp) {
+            user.products[i].soluong++;
+            daCoSanPham = true;
+            break;
+        }
+    }
+
+    if (!daCoSanPham) { // nếu không trùng thì mới thêm sản phẩm vào user.products
+        user.products.push({
+            "ma": masp,
+            "soluong": 1,
+            "date": t
+        }
+        );
+    }
+    // animateCartNumber();
+    // addAlertBox('Đã thêm ' + tensp + ' vào giỏ.', '#17c671', '#fff', 3500);
+
+    setCurrentUser(user); // cập nhật giỏ hàng cho user hiện tại
+    updateListUser(user); // cập nhật list user
+    capNhat_ThongTin_CurrentUser(); // cập nhật giỏ hàng
+}
+function getCurrentUser() {
+    return JSON.parse(window.localStorage.getItem('CurrentUser')); // Lấy dữ liệu từ localstorage
+}
+// Cập nhật số lượng hàng trong giỏ hàng + Tên current user
+function capNhat_ThongTin_CurrentUser() {
+    var u = getCurrentUser();
+    if (u) {
+        // Cập nhật tên người dùng
+        document.getElementsByClassName('user')[0].getElementsByTagName('a')[0].childNodes[2].nodeValue = ' ' + u.username;
+    }
+}
+function getTongSoLuongSanPhamTrongGioHang(u) {
+    var soluong = 0;
+    for (var p of u.products) {
+        soluong += p.soluong;
+    }
+    return soluong;
 }

@@ -6,6 +6,8 @@ window.onload=function(){
     eventab();
     //tạo bảng
     addTableProducts(); 
+    addTableDonHang();
+    addTableKhachHang();
 
 }
 function setalcoholList(newList) {
@@ -285,7 +287,7 @@ function xoaAnhSanPham(masp){
     previewSrc=null;
     // document.getElementById('khungSuaSanPham').style.transform = 'scale(0)';
 }   
-// 8888888888888888888888888888888888888 Đơn hàng
+// ===================================================Đơn hàng
 var TONGTIEN
 function addTableDonHang() {
     var tc = document.getElementsByClassName('donhang')[0].getElementsByClassName('table-content')[0];
@@ -305,8 +307,8 @@ function addTableDonHang() {
             <td style="width: 10%">` + d.ngaygio + `</td>
             <td style="width: 10%">` + d.tinhTrang + `</td>
             <td style="width: 10%">
-                <div class="tooltip">
-                    <i class="fa fa-check" onclick="duyet('`+d.ma+`', true)"></i>
+                <div class="tooltip" onclick="duyet('`+d.ma+`', true)">
+                    <i class="fa fa-check"></i>
                     <span class="tooltiptext">Duyệt</span>
                 </div>
                 <div class="tooltip">
@@ -318,9 +320,13 @@ function addTableDonHang() {
         </tr>`;
         TONGTIEN += stringToNum(d.tongtien);
     }
-
     s += `</table>`;
     tc.innerHTML = s;
+}
+function timKiemTheoMa(list, ma) {
+    for (var l of list) {
+        if (l.masp == ma) return l;
+    }
 }
 function getListDonHang(traVeDanhSachSanPham = false) {
     var u = getListUser();
@@ -330,29 +336,26 @@ function getListDonHang(traVeDanhSachSanPham = false) {
             // Tổng tiền
             var tongtien = 0;
             for(var s of u[i].donhang[j].sp) {
-                var timsp = timKiemTheoMa(list_products, s.ma);
-                if(timsp.promo.name == 'giareonline') tongtien += stringToNum(timsp.promo.value);
-                else tongtien += stringToNum(timsp.price);
+                var timsp = timKiemTheoMa(alcoholList, s.ma);
+                tongtien += stringToNum(timsp.gia);
             }
-
             // Ngày giờ
             var x = new Date(u[i].donhang[j].ngaymua).toLocaleString();
 
             // Các sản phẩm - dạng html
             var sps = '';
             for(var s of u[i].donhang[j].sp) {
-                sps += `<p style="text-align: right">`+(timKiemTheoMa(list_products, s.ma).name + ' [' + s.soluong + ']') + `</p>`;
+                sps += `<p style="text-align: right">`+(timKiemTheoMa(alcoholList, s.ma).tensp + ' [' + s.soluong + ']') + `</p>`;
             }
 
             // Các sản phẩm - dạng mảng
             var danhSachSanPham = [];
             for(var s of u[i].donhang[j].sp) {
                 danhSachSanPham.push({
-                    sanPham: timKiemTheoMa(list_products, s.ma),
+                    sanPham: timKiemTheoMa(alcoholList, s.ma),
                     soLuong: s.soluong,
                 });
             }
-
             // Lưu vào result
             result.push({
                 "ma": u[i].donhang[j].ngaymua.toString(),
@@ -373,6 +376,7 @@ function duyet(maDonHang, duyetDon) {
     for(var i = 0; i < u.length; i++) {
         for(var j = 0; j < u[i].donhang.length; j++) {
             if(u[i].donhang[j].ngaymua == maDonHang) {
+                // alert(duyetDon)
                 if(duyetDon) {
                     if(u[i].donhang[j].tinhTrang == 'Đang chờ xử lý') {
                         u[i].donhang[j].tinhTrang = 'Đã giao hàng';
@@ -381,6 +385,7 @@ function duyet(maDonHang, duyetDon) {
                         alert('Không thể duyệt đơn đã hủy !');
                         return;
                     }
+                    // if(u[i].donhang[j].tinhTrang =='Đã giao hàng')
                 } else {
                     if(u[i].donhang[j].tinhTrang == 'Đang chờ xử lý') {
                         if(window.confirm('Bạn có chắc muốn hủy đơn hàng này. Hành động này sẽ không thể khôi phục lại !'))
@@ -403,8 +408,55 @@ function duyet(maDonHang, duyetDon) {
     addTableDonHang();
 }
 
+//Khách Hàng=======================================================
+function addTableKhachHang() {
+    var tc = document.getElementsByClassName('khachhang')[0].getElementsByClassName('table-content')[0];
+    var s = `<table class="table-outline hideImg">`;
 
+    var listUser = getListUser();
 
+    for (var i = 0; i < listUser.length; i++) {
+        var u = listUser[i];
+        s += `<tr>
+            <td style="width: 5%">` + (i+1) + `</td>
+            <td style="width: 15%">` + u.ho + ' ' + u.ten + `</td>
+            <td style="width: 20%">` + u.email + `</td>
+            <td style="width: 20%">` + u.username + `</td>
+            <td style="width: 10%">` + u.pass + `</td>
+            <td style="width: 10%">
+                <div class="tooltip">
+                    <label class="switch">
+                        <input type="checkbox" `+(u.off?'':'checked')+` onclick="voHieuHoaNguoiDung(this, '`+u.username+`')">
+                        <span class="slider round"></span>
+                    </label>
+                    <span class="tooltiptext">`+(u.off?'Mở':'Khóa')+`</span>
+                </div>
+                <div class="tooltip" onclick="xoaNguoiDung('`+u.username+`')">
+                    <i class="fa fa-remove" "></i>
+                    <span class="tooltiptext">Xóa</span>
+                </div>
+            </td>
+        </tr>`;
+    }
+
+    s += `</table>`;
+    tc.innerHTML = s;
+}
+function xoaNguoiDung(taikhoan) {
+    if(window.confirm('Xác nhận xóa '+taikhoan+'? \nMọi dữ liệu về '+taikhoan+' sẽ mất! Bao gồm cả những đơn hàng của '+taikhoan)) {
+        var listuser = getListUser();
+        for(var i = 0; i < listuser.length; i++) {
+            if(listuser[i].username == taikhoan) {
+                listuser.splice(i, 1); // xóa
+                setListUser(listuser); // lưu thay đổi
+                localStorage.removeItem('CurrentUser'); // đăng xuất khỏi tài khoản hiện tại (current user)
+                addTableKhachHang(); // vẽ lại bảng khách hàng
+                addTableDonHang(); // vẽ lại bảng đơn hàng
+                return;
+            }
+        }
+    }
+}
 
 
 
@@ -432,7 +484,7 @@ function duyet(maDonHang, duyetDon) {
 
 
 //hàm chuyển kiểu dữ liệu
-function stringtoNum(str,char){
+function stringToNum(str,char){
     return Number(str.split(char || '.').join(''));
 }
 function numToString(num, char) {
@@ -501,4 +553,7 @@ function eventab(){
         opensanpham.classList.remove('action')
     }
     opentrangchu.addEventListener('click',showtrangchu)
+}
+function setListUser(l) {
+    window.localStorage.setItem('ListUser', JSON.stringify(l));
 }

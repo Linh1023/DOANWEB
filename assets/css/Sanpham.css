@@ -139,7 +139,7 @@ html {
     display: flex;
     justify-content: center;
 }
-.close{
+.closes{
     position: absolute;
     top: 0;
     right: 0;
@@ -147,7 +147,7 @@ html {
     font-size: 30px;
     color:#fff;
 }
-.close:hover{
+.closes:hover{
     background-color: red;
     color: #000;
 }
@@ -416,10 +416,11 @@ html {
     padding: 16px;
     border-radius: 4px;
   }
-  
+
   .product-buy__btn:hover {
     background-color: #960000;
     transition: all ease 0.3s;
+    cursor: pointer;
   }
   
   .info-border {

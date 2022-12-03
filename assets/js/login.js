@@ -36,7 +36,6 @@ function getListUser() {
     }
     return l;
 }
-
 function setListUser(l) {
     window.localStorage.setItem('ListUser', JSON.stringify(l));
 }

@@ -92,6 +92,7 @@ table{
     /* background-color: var(--colorba); */
     border-left: 3px solid #2d40e7;
 }
+
 .main{
     width:calc(100% - 130px);
     display: flex;

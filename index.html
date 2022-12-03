@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="./assets/css/taikhoan.css">
     <link rel="stylesheet" href="./assets/fonts/themify-icons/themify-icons.css">
 
-    <script src="./assets/js/Products.js"></script>
+    <script src="./assets/js/products.js"></script>
     <script src="./assets/js/login.js"></script>
     <script src="./assets/js/header.js"></script>
 
@@ -93,7 +93,7 @@
 
                     <div class="name">RUM DICTADOR AURUM</div>
                     <div class="desc">Rum</div>
-                    <div class="price">3.450.000</div>
+                    <div class="price">3.450.000$</div>
                 </div>
 
 
@@ -119,7 +119,7 @@
 
                     <div class="name">CHIVAS 21 NĂM - ROYAL SALUTE 21</div>
                     <div class="desc">Whisky</div>
-                    <div class="price">2.550.000</div>
+                    <div class="price">2.550.000$</div>
                 </div>
 
 
@@ -145,7 +145,7 @@
 
                     <div class="name">RƯỢU VODKA BELVEDERE</div>
                     <div class="desc">Vodka</div>
-                    <div class="price">3.210.000</div>
+                    <div class="price">3.210.000$</div>
                 </div>
 
 
@@ -173,7 +173,7 @@
 
                     <div class="name">RUM MATUSALEM 15 NĂM</div>
                     <div class="desc">Rum</div>
-                    <div class="price">1.250.000</div>
+                    <div class="price">1.250.000$</div>
                 </div>
 
                 
@@ -199,7 +199,7 @@
 
                     <div class="name">JIM BEAM</div>
                     <div class="desc">Whiskey</div>
-                    <div class="price">2.600.000</div>
+                    <div class="price">2.600.000$</div>
                 </div>
             </ul>
             <div class="more-product">
@@ -250,12 +250,33 @@
                 </form>
             </div>
         </div>
+        <button onclick="topFunction()" id="myBtn" title="Go to top">
+            <i class="ti-arrow-up"></i>
+          </button>
+          <script>
+            // Go To Top
+            window.onscroll = function () {
+              scrollFunction();
+            };
+    
+            function scrollFunction() {
+              if (
+                document.body.scrollTop > 20 ||
+                document.documentElement.scrollTop > 20
+              ) {
+                document.getElementById("myBtn").style.display = "block";
+              } else {
+                document.getElementById("myBtn").style.display = "none";
+              }
+            }
+    
+            // When the user clicks on the button, scroll to the top of the document
+            function topFunction() {
+              document.body.scrollTop = 0;
+              document.documentElement.scrollTop = 0;
+            }
+          </script>
     </div>
-   
-    <script>
-    addContainTaiKhoan();
-    setupEventTaiKhoan();
-    </script>
 </body>
 
 </html>

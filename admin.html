@@ -5,11 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web Since 1985</title>
-    <link rel="shortcut icon" href="./web_shop_ban_hang/web_shop_ban_hang-main/assets/images/wine-glass.png" />
+    <link rel="shortcut icon" href=".//assets/images/wine-glass.png" />
     <link rel="stylesheet" href="./assets/css/admin.css">
     <link rel="stylesheet" href="./assets/fonts/themify-icons/themify-icons.css">
     <script src="./assets/js/admin.js"></script>
     <script src="./assets/js/products.js"></script>
+    <script src="./assets/js/login.js"></script>
 </head>
 <body>
     <div class="body">
@@ -36,7 +37,7 @@
             <!-- Khung hiển thị chính -->
             <div class="main">
                 <!-- trangchu -->
-                <div class="js-trangchu trangchu">hi</div>
+                <div class="js-trangchu trangchu">Thống Kê</div>
                 <!-- Sản Phẩm -->
                 <div class="sanpham js-sanpham">
                     <table class="table-header">
@@ -126,70 +127,38 @@
                     <table class="table-header">
                         <tr>
                             <!-- Theo độ rộng của table content -->
-                            <th title="Sắp xếp" style="width: 5%" onclick="sortDonHangTable('stt')">Stt</th>
-                            <th title="Sắp xếp" style="width: 13%" onclick="sortDonHangTable('madon')">Mã đơn</th>
-                            <th title="Sắp xếp" style="width: 7%" onclick="sortDonHangTable('khach')">Khách</th>
-                            <th title="Sắp xếp" style="width: 20%" onclick="sortDonHangTable('sanpham')">Sản phẩm</th>
-                            <th title="Sắp xếp" style="width: 15%" onclick="sortDonHangTable('tongtien')">Tổng tiền</th>
-                            <th title="Sắp xếp" style="width: 10%" onclick="sortDonHangTable('ngaygio')">Ngày giờ</th>
-                            <th title="Sắp xếp" style="width: 10%" onclick="sortDonHangTable('trangthai')">Trạng thái</th>
+                            <th title="Sắp xếp" style="width: 5%" >Stt</th>
+                            <th title="Sắp xếp" style="width: 13%" >Mã đơn</th>
+                            <th title="Sắp xếp" style="width: 7%" >Khách</th>
+                            <th title="Sắp xếp" style="width: 20%" >Sản phẩm</th>
+                            <th title="Sắp xếp" style="width: 15%" >Tổng tiền</th>
+                            <th title="Sắp xếp" style="width: 10%" >Ngày giờ</th>
+                            <th title="Sắp xếp" style="width: 10%" >Trạng thái</th>
                             <th style="width: 10%">Hành động</th>
                         </tr>
                     </table>
 
                     <div class="table-content">
                     </div>
-
-                    <div class="table-footer">
-                        <div class="timTheoNgay">
-                            Từ ngày: <input type="date" id="fromDate">
-                            Đến ngày: <input type="date" id="toDate">
-
-                            <button onclick="locDonHangTheoKhoangNgay()"> Tìm</button>
-                        </div>
-
-                        <select name="kieuTimDonHang">
-                            <option value="ma">Tìm theo mã đơn</option>
-                            <option value="khachhang">Tìm theo tên khách hàng</option>
-                            <option value="trangThai">Tìm theo trạng thái</option>
-                        </select>
-                        <input type="text" placeholder="Tìm kiếm..." onkeyup="timKiemDonHang(this)">
-                    </div>
-                    <!-- <div class="clear"></div> -->
-
                 </div> <!-- // don hang -->
-
-
                 <!-- Khách hàng -->
                 <div class="khachhang js-khachhang">
                     <table class="table-header">
                         <tr>
                             <!-- Theo độ rộng của table content -->
-                            <th title="Sắp xếp" style="width: 5%" onclick="sortKhachHangTable('stt')">Stt</th>
-                            <th title="Sắp xếp" style="width: 15%" onclick="sortKhachHangTable('hoten')">Họ tên</th>
-                            <th title="Sắp xếp" style="width: 20%" onclick="sortKhachHangTable('email')">Email</th>
-                            <th title="Sắp xếp" style="width: 20%" onclick="sortKhachHangTable('taikhoan')">Tài khoản</th>
-                            <th title="Sắp xếp" style="width: 10%" onclick="sortKhachHangTable('matkhau')">Mật khẩu</th>
+                            <th title="Sắp xếp" style="width: 5%" >Stt</th>
+                            <th title="Sắp xếp" style="width: 15%" >Họ tên</th>
+                            <th title="Sắp xếp" style="width: 20%" >Email</th>
+                            <th title="Sắp xếp" style="width: 20%" >Tài khoản</th>
+                            <th title="Sắp xếp" style="width: 10%" >Mật khẩu</th>
                             <th style="width: 10%">Hành động</th>
                         </tr>
                     </table>
-
                     <div class="table-content">
-                    </div>
-
-                    <div class="table-footer">
-                        <select name="kieuTimKhachHang">
-                            <option value="ten">Tìm theo họ tên</option>
-                            <option value="email">Tìm theo email</option>
-                            <option value="taikhoan">Tìm theo tài khoản</option>
-                        </select>
-                        <input type="text" placeholder="Tìm kiếm..." onkeyup="timKiemNguoiDung(this)">
-                        <button onclick="openThemNguoiDung()">Thêm người dùng</button>
                     </div>
                 </div> <!-- // khach hang -->
             </div> <!-- // main -->
-        <div class="clear"></div>
-
+            <div class="clear"></div>
         <footer>
         </footer>
     </div>

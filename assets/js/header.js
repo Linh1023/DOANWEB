@@ -30,11 +30,13 @@ function addheader(){
                     <a onclick="if(window.confirm('Xác nhận đăng xuất ?')) logOut();">| Đăng xuất</a>
                 </div>
                 <div class="cart">
-                    <a  >
+                    <a href="giohang.html">
                     <i class="ti-shopping-cart"></i>
                     </a>
                 </div>
             </div>
         </div>
 `);
+addContainTaiKhoan();
+setupEventTaiKhoan();
 }
