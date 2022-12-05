@@ -1,8 +1,8 @@
 var currentuser;
-
 window.onload=function(){
 	currentuser=getCurrentUser();
     addProductToTable(currentuser);
+    addProductToTable1(currentuser);
 }
 function timKiemTheoMa(list, ma) {
     for (var l of list) {
@@ -39,8 +39,8 @@ function addProductToTable(user) {
 		s += `
 			<tr>
 				<td colspan="7"> 
-					<h1 style="color:green; background-color:white; font-weight:bold; text-align:center; padding: 15px 0;">
-						Giỏ hàng trống !!
+					<h1 style="color:green; background-color:yellow; font-weight:bold; text-align:center; padding: 15px 0;">
+						Giỏ hàng của bạn trống !!
 					</h1> 
 				</td>
 			</tr>
@@ -48,6 +48,7 @@ function addProductToTable(user) {
 		table.innerHTML = s;
 		return;
 	}
+	// lưu tổng tiền
 	var totalPrice = 0;
     
     s+=`<table>`
@@ -55,40 +56,37 @@ function addProductToTable(user) {
 		var masp = user.products[i].ma;
 		var soluongSp = user.products[i].soluong;
 		var p = timKiemTheoMa(alcoholList, masp);
-        
-		var gia1 =p.gia;
 		var thoigian = new Date(user.products[i].date).toLocaleString();
-        
-		var thanhtien = stringToNum(gia1) * soluongSp;
+		var thanhtien = stringToNum(p.gia) * soluongSp;
 
 		s += `
 
 			<tr>
 				<td>` + (i + 1) + `</td>
-				<td class="noPadding imgHide">
+				<td >
 				`+p.tensp+`
 				</td>
 				<td class="alignRight">` + p.gia + ` ₫</td>
 				<td class="soluong" >
-					
+					<button onclick="giamSoLuong('` + masp + `')"><i class="ti-minus"></i></button>
 					<input size="1"  value=` + soluongSp + `>
-					
+					<button onclick="tangSoLuong('` + masp + `')"><i class="ti-plus"></i></button>
 				</td>
 				<td class="alignRight">` + numToString(thanhtien) + ` ₫</td>
 				<td style="text-align: center" >` + thoigian + `</td>
-				<td class="noPadding"> <i class="ti ti-trash" onclick="xoaSanPhamTrongGioHang(` + i + `)"></i> </td>
+				<td > <i class="ti ti-trash" onclick="xoaSanPhamTrongGioHang(` + i + `)"></i> </td>
 			</tr>
 		`;
 		// Chú ý nháy cho đúng ở giamsoluong, tangsoluong
 		totalPrice += thanhtien;
 
 	}
-
 	s += `
 			<tr style="font-weight:bold; text-align:center">
 				<td colspan="4">TỔNG TIỀN: </td>
 				<td class="alignRight">` + numToString(totalPrice) + ` ₫</td>
-				<td class="thanhtoan" onclick="thanhToan()"> Thanh Toán </td>
+				<td class="thanhtoan" onclick="thanhToan();	currentuser=getCurrentUser();addProductToTable(currentuser);addProductToTable1(currentuser);	
+				"> Thanh Toán </td>
 				<td class="xoaHet" onclick="xoaHet()"> Xóa hết </td>
 			</tr>
 		</tbody>
@@ -98,6 +96,93 @@ function addProductToTable(user) {
     // document.write(s);
 	table.innerHTML = s;
 }
+//Danh Sách sảm phẩm đã mua
+function addProductToTable1(user) {
+	var table = document.getElementsByClassName('listSanPhamDaMua')[0];
+	var s = `
+		<tbody>
+			<tr class="sub-information">
+				<th>STT</th>
+				<th>Tên Sản phẩm</th>
+				<th>Số lượng</th>
+				<th>Giá tiền</th>
+				<th>Tổng Tiền</th>
+				<th>Thêm vào giỏ lúc</th>
+				<th>Thanh toán lúc</th>
+			</tr>`;
+
+	if (!user) {
+		s += `
+			<tr>
+				<td colspan="7"> 
+					<h1 style="color:red; background-color:white; font-weight:bold; text-align:center; padding: 15px 0;">
+						Bạn chưa đăng nhập !!
+					</h1> 
+				</td>
+			</tr>
+		`;
+		table.innerHTML = s;
+		return;
+	} else if (user.donhang.length == 0) {
+		s += `
+			<tr>
+				<td colspan="7"> 
+					<h1 style="color:green; background-color:yellow; font-weight:bold; text-align:center; padding: 15px 0;">
+						Giỏ hàng của bạn trống !!
+					</h1> 
+				</td>
+			</tr>
+		`;
+		table.innerHTML = s;
+		return;
+	}
+	// lưu tổng tiền
+	var totalPrice = 0;
+    
+    s+=`<table>`
+	for (var i = 0; i < user.donhang.length; i++) {
+		var masp = user.donhang[i].sp[0].ma;
+		var soluongSp = user.donhang[i].sp[0].soluong;
+		var p = timKiemTheoMa(alcoholList, masp);
+		var thoigiandat = new Date(user.donhang[i].ngaymua).toLocaleString();
+		var thoigianduyet = new Date(user.donhang[i].sp[0].date).toLocaleString();
+		var thanhtien = stringToNum(p.gia) * soluongSp;
+
+		s += `
+
+			<tr>
+				<td>` + (i + 1) + `</td>
+				<td >
+				`+p.tensp+`
+				</td>
+				<td class="soluong" >
+					` + soluongSp + `
+				</td>
+				<td class="alignRight">` + p.gia + ` ₫</td>
+				<td class="alignRight">` + numToString(thanhtien) + ` ₫</td>
+				<td style="text-align: center" >` + thoigiandat + `</td>
+				<td style="text-align: center" >` + thoigianduyet + `</td>
+			</tr>
+		`;
+		// Chú ý nháy cho đúng ở giamsoluong, tangsoluong
+		totalPrice += thanhtien;
+
+	}
+	s += `
+			<tr style="font-weight:bold; text-align:center">
+				<td colspan="4">TỔNG TIỀN ĐÃ MUA: </td>
+				<td class="alignRight">` + numToString(totalPrice) + ` ₫</td>
+				<td ></td>
+				<td ></td>
+			</tr>
+		</tbody>
+	`;
+    s+=`</table>`
+    // document.write(s);
+	table.innerHTML = s;
+}
+////////////////////////////////////////////
+
 function numToString(num, char) {
     return num.toLocaleString().split(',').join(char || '.');
 }
@@ -113,16 +198,50 @@ function xoaSanPhamTrongGioHang(i) {
 	}
 }
 
+// Sau khi chỉnh sửa 1 user 'u' thì cần hàm này để cập nhật lại vào ListUser
+function updateListUser(u, newData) {
+    var list = getListUser();
+    for (var i = 0; i < list.length; i++) {
+        if (equalUser(u, list[i])) {
+            list[i] = (newData ? newData : u);
+        }
+    }
+    setListUser(list);
+}
+//
+// Hàm get set cho người dùng hiện tại đã đăng nhập
+function getCurrentUser() {
+    return JSON.parse(window.localStorage.getItem('CurrentUser')); // Lấy dữ liệu từ localstorage
+}
+
+function setCurrentUser(u) {
+    window.localStorage.setItem('CurrentUser', JSON.stringify(u));
+}
+
+// Hàm get set cho danh sách người dùng
+function getListUser() {
+    var data = JSON.parse(window.localStorage.getItem('ListUser')) || []
+    var l = [];
+    for (var d of data) {
+        l.push(d);
+    }
+    return l;
+}
+function setListUser(l) {
+    window.localStorage.setItem('ListUser', JSON.stringify(l));
+}
+
+
 function thanhToan() {
 	var c_user = getCurrentUser();
 	if(c_user.off) {
         alert('Tài khoản của bạn hiện đang bị khóa nên không thể mua hàng!');
-        addAlertBox('Tài khoản của bạn đã bị khóa bởi Admin.', '#aa0000', '#fff', 10000);
+        // addAlertBox('Tài khoản của bạn đã bị khóa bởi Admin.', '#aa0000', '#fff', 10000);
         return;
 	}
 	
 	if (!currentuser.products.length) {
-		addAlertBox('Không có mặt hàng nào cần thanh toán !!', '#ffb400', '#fff', 2000);
+		// addAlertBox('Không có mặt hàng nào cần thanh toán !!', '#ffb400', '#fff', 2000);
 		return;
 	}
 	if (window.confirm('Thanh toán giỏ hàng ?')) {
@@ -133,7 +252,8 @@ function thanhToan() {
 		});
 		currentuser.products = [];
 		capNhatMoiThu();
-		addAlertBox('Các sản phẩm đã được gửi vào đơn hàng và chờ xử lý.', '#17c671', '#fff', 4000);
+		// addAlertBox('Các sản phẩm đã được gửi vào đơn hàng và chờ xử lý.', '#17c671', '#fff', 4000);
+	
 	}
 }
 
@@ -166,7 +286,6 @@ function tangSoLuong(masp) {
 			p.soluong++;
 		}
 	}
-
 	capNhatMoiThu();
 }
 
@@ -180,21 +299,15 @@ function giamSoLuong(masp) {
 			}
 		}
 	}
-
 	capNhatMoiThu();
 }
 
-
 function capNhatMoiThu() { // Mọi thứ
-	
-
 	// cập nhật danh sách sản phẩm trong localstorage
 	setCurrentUser(currentuser);
 	updateListUser(currentuser);
-
 	// cập nhật danh sách sản phẩm ở table
 	addProductToTable(currentuser);
 
 	// Cập nhật trên header
-	capNhat_ThongTin_CurrentUser();
 }

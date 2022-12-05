@@ -1,9 +1,7 @@
-/* https://www.w3schools.com/css/tryit.asp?filename=trycss_table_fancy */
 .listSanPham {
-	margin: 50px auto;
+	margin: 20px auto;
     border-collapse: collapse;
     width: 100%;
-    margin-top: 200px;
 }
 
 /* thêm border và padding cho th */
@@ -45,7 +43,7 @@
 .listSanPham .soluong button {
     width: 30px;
     height: 30px;
-    border: none;
+    border: 1px solid #000;
     border-radius: 5px;
     cursor: pointer;
     background-color: transparent; 
@@ -62,6 +60,9 @@
     text-align: center;
     width: 5em;
     height: 2em;
+}
+.listSanPham td{
+    height: 30px;
 }
 
 /* Link sản phẩm */
@@ -137,4 +138,9 @@
 }
 .xoaHet:hover {
     background-color: rgb(224, 65, 65);
+}
+.titledanhsach{
+    color: rgb(93, 126, 126);
+    text-align: center;
+    font-size: 30px;
 }

@@ -1,12 +1,9 @@
-function getalcoholList() {
-    return JSON.parse(window.localStorage.getItem('alcoholList'));
-}
 window.onload=function(){
-    //Lấy dssp trong localstorage
-    // var jsonlistProducts = localStorage.getItem("alcoholList");
-    // var alcoholList = JSON.parse(jsonlistProducts);
     alcoholList=getalcoholList()||alcoholList;
     addtable('All');
+}
+function getalcoholList() {
+    return JSON.parse(window.localStorage.getItem('alcoholList'));
 }
 function addtable(value){
     //Chuyển ds đối tượng SP sang HTML
@@ -18,42 +15,22 @@ function addtable(value){
     //Gắn đoạn HTML vào ListProducts
     var nodeProducts = document.getElementById("list-products");
     nodeProducts.innerHTML = HTML;
-
-    if(value=="All")
-    var button=document.getElementsByClassName('button-value')[0];
-    document.getElementsByClassName('button-value')[1].style.background = '#fff';
-    document.getElementsByClassName('button-value')[2].style.background = '#fff';
-    document.getElementsByClassName('button-value')[3].style.background = '#fff';
-    document.getElementsByClassName('button-value')[1].style.color = '#6759ff';
-    document.getElementsByClassName('button-value')[2].style.color = '#6759ff';
-    document.getElementsByClassName('button-value')[3].style.color = '#6759ff';
-    if(value=="Rum")
-    var button=document.getElementsByClassName('button-value')[1];
-    document.getElementsByClassName('button-value')[0].style.background = '#fff';
-    document.getElementsByClassName('button-value')[2].style.background = '#fff';
-    document.getElementsByClassName('button-value')[3].style.background = '#fff';
-    document.getElementsByClassName('button-value')[0].style.color = '#6759ff';
-    document.getElementsByClassName('button-value')[2].style.color = '#6759ff';
-    document.getElementsByClassName('button-value')[3].style.color = '#6759ff';
-    if(value=="Whisky")
-    var button=document.getElementsByClassName('button-value')[2];
-    document.getElementsByClassName('button-value')[1].style.background = '#fff';
-    document.getElementsByClassName('button-value')[0].style.background = '#fff';
-    document.getElementsByClassName('button-value')[3].style.background = '#fff';
-    document.getElementsByClassName('button-value')[1].style.color = '#6759ff';
-    document.getElementsByClassName('button-value')[0].style.color = '#6759ff';
-    document.getElementsByClassName('button-value')[3].style.color = '#6759ff';
-    if(value=="Vodka")
-    var button=document.getElementsByClassName('button-value')[3];
-    document.getElementsByClassName('button-value')[1].style.background = '#fff';
-    document.getElementsByClassName('button-value')[2].style.background = '#fff';
-    document.getElementsByClassName('button-value')[0].style.background = '#fff';
-    document.getElementsByClassName('button-value')[1].style.color = '#6759ff';
-    document.getElementsByClassName('button-value')[2].style.color = '#6759ff';
-    document.getElementsByClassName('button-value')[0].style.color = '#6759ff';
-    button.style.background = '#6759ff';
-    button.style.color = '#fff';
-
+    var button=document.getElementsByClassName('button-value');
+    var u;
+    if(value=="All")u=0;
+    if(value=="Rum")u=1;
+    if(value=="Whisky")u=2;
+    if(value=="Vodka")u=3;
+    for(var i=0;i<button.length;i++)
+    {
+        if(i==u){
+            button[i].style.background = '#6759ff';
+            button[i].style.color = '#fff';
+            continue;
+        }
+        button[i].style.background="#fff";
+        button[i].style.color="#6759ff";
+    }
 }
 function CreateProduct(masp,tensp,thuonghieu,hinh,gia,sosao,nongdo,dungtich){
     var product = new Object();
@@ -85,7 +62,6 @@ function ChuyenDSDTSPthanhHTML(alcoholList,value){
     var dem=0;
     var giatritren=document.getElementsByClassName('khoanggiatien')[1].value;
     var giatriduoi=document.getElementsByClassName('khoanggiatien')[0].value;
-
     for(var i = 0;i<alcoholList.length;i++){
         if(giatriduoi!=''&&giatritren!='')
         {  
@@ -99,7 +75,9 @@ function ChuyenDSDTSPthanhHTML(alcoholList,value){
         }
         soitemtrongdanhmuc=dem;
     }
+    //in ra tìm thấy bao nhiêu sản phẩm
     var HTMLlistProducts = ' <div id="soluongsanpham">Tìm thấy '+dem+' sản phẩm </div> <div class="items">';
+
     for(var i = 0;i<alcoholList.length;i++){
         
             if(giatriduoi!=''&&giatritren!='')
@@ -129,7 +107,11 @@ function chuyenDTSPthanhHTML(product){
     var html = '';
    html+=           '<div class="item" onclick="addKhungItem(`'+product.masp+'`)" value="'+product.masp+'">'
    html+=                   '<div class="item-img">'
+   if(product.hinh!=null)
    html+=                       '<img src="'+product.hinh+'" alt="">'
+   else
+   html+=                       '<img src="./assets/images/img-products/default.jpg" alt="">'
+
    html+=                   '</div>'
    html+=                   '<div class="stars">'
    for(var i=1;i<=product.sosao;i++){
@@ -163,8 +145,15 @@ function addKhungItem(masp){
     </div>
     <div class="row">
         <div class="col l-4">
-            <a href="" class="product-image">
-              <img src="`+sp.hinh+`" alt="MATUSALEM" class="product-image__img">
+            <a href="" class="product-image">`
+        if(sp.hinh==null)
+            xuat+=`
+                <img src="./assets/images/img-products/default.jpg" alt="MATUSALEM" class="product-image__img">`
+        else
+        xuat+=`
+                <img src="`+sp.hinh+`" alt="MATUSALEM" class="product-image__img">`
+
+        xuat+= `
             </a>
       </div>
       <div class="col l-4">
@@ -278,7 +267,7 @@ function themVaoGioHang(masp, tensp) {
     }
     if (user.off) {
         alert('Tài khoản của bạn hiện đang bị khóa nên không thể mua hàng!');
-        addAlertBox('Tài khoản của bạn đã bị khóa bởi Admin.', '#aa0000', '#fff', 10000);
+        // addAlertBox('Tài khoản của bạn đã bị khóa bởi Admin.', '#aa0000', '#fff', 10000);
         return;
     }
     alert("Đã Thêm Vào giỏ hàng")
@@ -306,18 +295,9 @@ function themVaoGioHang(masp, tensp) {
 
     setCurrentUser(user); // cập nhật giỏ hàng cho user hiện tại
     updateListUser(user); // cập nhật list user
-    capNhat_ThongTin_CurrentUser(); // cập nhật giỏ hàng
 }
 function getCurrentUser() {
     return JSON.parse(window.localStorage.getItem('CurrentUser')); // Lấy dữ liệu từ localstorage
-}
-// Cập nhật số lượng hàng trong giỏ hàng + Tên current user
-function capNhat_ThongTin_CurrentUser() {
-    var u = getCurrentUser();
-    if (u) {
-        // Cập nhật tên người dùng
-        document.getElementsByClassName('user')[0].getElementsByTagName('a')[0].childNodes[2].nodeValue = ' ' + u.username;
-    }
 }
 function getTongSoLuongSanPhamTrongGioHang(u) {
     var soluong = 0;

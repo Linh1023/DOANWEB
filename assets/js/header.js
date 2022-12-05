@@ -1,5 +1,4 @@
 function addheader(){
-
     document.write(`
         <div id="header" class="container">
             <a href="index.html" target="_parent" class="logo">
@@ -27,7 +26,7 @@ function addheader(){
                     <i class="ti-user" logOut()></i>
                     Tai Khoan
                     </a>
-                    <a onclick="if(window.confirm('Xác nhận đăng xuất ?')) logOut();">| Đăng xuất</a>
+                    <a onclick="logOut()">| Đăng xuất</a>
                 </div>
                 <div class="cart">
                     <a href="giohang.html">
@@ -39,4 +38,13 @@ function addheader(){
 `);
 addContainTaiKhoan();
 setupEventTaiKhoan();
+capNhat_ThongTin_CurrentUser();
+
+}
+function capNhat_ThongTin_CurrentUser() {
+    var u = getCurrentUser();
+    if (u) {
+        // Cập nhật tên người dùng
+        document.getElementsByClassName('user')[0].getElementsByTagName('a')[0].childNodes[2].nodeValue = ' ' + u.username;
+    }
 }

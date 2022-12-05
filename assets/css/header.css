@@ -105,6 +105,7 @@
 .cart{
     margin-left: 20px;
 }
-.h2{
-    
-}
+.container{
+    max-width: 2000px;
+    margin: 0 auto;
+ }

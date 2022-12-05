@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Since 1985</title>
+    <title>Admin Since 1985</title>
+    
     <link rel="shortcut icon" href=".//assets/images/wine-glass.png" />
     <link rel="stylesheet" href="./assets/css/admin.css">
     <link rel="stylesheet" href="./assets/fonts/themify-icons/themify-icons.css">
+
     <script src="./assets/js/admin.js"></script>
     <script src="./assets/js/products.js"></script>
     <script src="./assets/js/login.js"></script>
@@ -27,7 +29,7 @@
                     <li class="nav-item js-opendonhang"><a class="nav-link"><i class="mr-6 ti-package"></i>Đơn Hàng</a></li>
                     <li class="nav-item js-openkhachhang"><a class="nav-link"><i class="mr-6 ti-id-badge"></i>Khách Hàng</a></li>
                     <li class="nav-item">
-                        <a href="index.html" class="nav-link" ><!-- onclick="logOutAdmin(); return true;" -->
+                        <a href="index.html" class="nav-link" onclick="logOutAdmin(); return true;">
                             <i class="mr-6 ti-arrow-circle-left"></i> Đăng xuất (về Trang chủ)
                         </a>
                     </li>
@@ -124,6 +126,11 @@
 
                 <!-- Đơn Hàng -->
                 <div class="donhang js-donhang">
+                    <div id="loctheongay">
+                        <input type="datetime-local" class="locdon">
+                        <input type="datetime-local" class="locdon">
+                        <input type="button" value="Lọc" onclick="addTableDonHang()">
+                    </div>
                     <table class="table-header">
                         <tr>
                             <!-- Theo độ rộng của table content -->

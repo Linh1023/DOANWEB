@@ -136,9 +136,10 @@ table{
     display: inline-block;
     padding:10px ;
     cursor: pointer;
-}
+}   
 .table-content .tooltip:hover{
-    background-color: rgba(0, 0, 0, 0.205);
+    background-color: rgba(0, 0, 0, 0.077);
+    border-radius: 20%;;
 }
 .sanpham tr td{
     position: relative;
@@ -264,4 +265,7 @@ table{
 /* -Đơn hàng- */
 .khachhang{
     display: none;
+}
+#loctheongay *{
+    color:#000;
 }

@@ -1,13 +1,19 @@
 //
 window.onload=function(){
+    if (window.localStorage.getItem('admin')) {
     //lấy dữ liệu từ localStorage hoặc từ alcoholList
     alcoholList=getalcoholList()||alcoholList;
     //them tab cho admin
     eventab();
     //tạo bảng
+
     addTableProducts(); 
     addTableDonHang();
     addTableKhachHang();
+        
+    } else {
+        document.body.innerHTML = `<h1  style="background-color:pink; color:red; with:100%; text-align:center; margin: 50px;"> Bạn Chưa Đăng Nhập ADMIN </h1>`;
+    }
 
 }
 function setalcoholList(newList) {
@@ -16,6 +22,91 @@ function setalcoholList(newList) {
 
 function getalcoholList() {
     return JSON.parse(window.localStorage.getItem('alcoholList'));
+}
+//hàm chuyển kiểu dữ liệu
+function stringToNum(str,char){
+    return Number(str.split(char || '.').join(''));
+}
+function numToString(num, char) {
+    return num.toLocaleString().split(',').join(char || '.');
+}
+function logOutAdmin() {
+    window.localStorage.removeItem('admin');
+}
+
+//mở các mục chính
+function eventab(){
+    const opensanpham=document.querySelector('.js-opensanpham')
+    const khungsanpham=document.querySelector('.js-sanpham')
+
+    const opendonhang=document.querySelector('.js-opendonhang')
+    const khungdonhang=document.querySelector('.js-donhang')
+
+    const openkhachhang=document.querySelector('.js-openkhachhang')
+    const khungkhachhang=document.querySelector('.js-khachhang')
+
+    const opentrangchu=document.querySelector('.js-opentrangchu')
+    const khungtrangchu=document.querySelector('.js-trangchu')
+    
+    function showsanpham(){
+        khungsanpham.classList.add('open')
+        khungdonhang.classList.remove('open')
+        khungkhachhang.classList.remove('open')
+        khungtrangchu.classList.remove('open')
+        opensanpham.classList.add('action')
+        opentrangchu.classList.remove('action')
+        openkhachhang.classList.remove('action')
+        opendonhang.classList.remove('action')
+    }
+    opensanpham.addEventListener('click',showsanpham)
+
+    function showdonhang(){
+        khungdonhang.classList.add('open')
+        khungkhachhang.classList.remove('open')
+        khungsanpham.classList.remove('open')
+        khungtrangchu.classList.remove('open')
+        opendonhang.classList.add('action')
+        opentrangchu.classList.remove('action')
+        openkhachhang.classList.remove('action')
+        opensanpham.classList.remove('action')
+    }
+    opendonhang.addEventListener('click',showdonhang)
+
+    function showkhachhang(){
+        khungkhachhang.classList.add('open')
+        khungdonhang.classList.remove('open')
+        khungsanpham.classList.remove('open')
+        khungtrangchu.classList.remove('open')
+        openkhachhang.classList.add('action')
+        opentrangchu.classList.remove('action')
+        opendonhang.classList.remove('action')
+        opensanpham.classList.remove('action')
+    }
+    openkhachhang.addEventListener('click',showkhachhang)
+        
+    function showtrangchu(){
+        khungtrangchu.classList.add('open')
+        khungdonhang.classList.remove('open')
+        khungsanpham.classList.remove('open')
+        khungkhachhang.classList.remove('open')
+        opentrangchu.classList.add('action')
+        openkhachhang.classList.remove('action')
+        opendonhang.classList.remove('action')
+        opensanpham.classList.remove('action')
+    }
+    opentrangchu.addEventListener('click',showtrangchu)
+}
+// Hàm get set cho danh sách người dùng
+function setListUser(l) {
+    window.localStorage.setItem('ListUser', JSON.stringify(l));
+}
+function getListUser() {
+    var data = JSON.parse(window.localStorage.getItem('ListUser')) || []
+    var l = [];
+    for (var d of data) {
+        l.push(d);
+    }
+    return l;
 }
 
 
@@ -96,14 +187,14 @@ function addKhungSuaSanPham(masp) {
         xuat+= `<img class="hinhDaiDien" id="anhDaiDienSanPhamThem" src="`+sp.hinh+`">
         <a onclick="xoaAnhSanPham('`+sp.masp+`')">Xóa hình</a>`
     }
+
     xuat+=`
-                
                 <input type="file" accept="image/*" onchange="capNhatAnhSanPham(this.files, 'anhDaiDienSanPhamThem')">
             </td>
         </tr>
         <tr>
             <td>Giá tiền ($):</td>
-            <td><input type="text" value="`+stringtoNum(sp.gia)+`"></td>
+            <td><input type="text" value="`+stringToNum(sp.gia)+`"></td>
         </tr>
         <tr>
             <td>Số sao (số nguyên 0->5):</td>
@@ -125,6 +216,7 @@ function addKhungSuaSanPham(masp) {
     khung.innerHTML = xuat;
     khung.style.transform = 'scale(1)';
 }
+//biến lưu ảnh sản phẩm
 let previewSrc;
 //cập nhật ảnh sản phẩm
 function capNhatAnhSanPham(files, id) {
@@ -140,6 +232,7 @@ function capNhatAnhSanPham(files, id) {
         reader.readAsDataURL(files[0]);
     }
 }
+//lấy thông tin trong bảng thêm sửa
 function layThongTinSanPhamTuTable(id) {
     //lấy dữ liệu trong thẻ html
     var khung = document.getElementById(id);
@@ -187,6 +280,7 @@ function layThongTinSanPhamTuTable(id) {
     }
 
 }
+
 //them san pham
 function themSanPham(){
     var sanphammoi=layThongTinSanPhamTuTable('khungThemSanPham');
@@ -288,16 +382,30 @@ function xoaAnhSanPham(masp){
     // document.getElementById('khungSuaSanPham').style.transform = 'scale(0)';
 }   
 // ===================================================Đơn hàng
-var TONGTIEN
+var TONGTIEN;
+function reverseString (s) {
+    var i = s.length,o = '';
+    while (i > 0) {
+        o += s.substring(i - 1, i);
+        i--;
+    }
+    return o;
+}
 function addTableDonHang() {
     var tc = document.getElementsByClassName('donhang')[0].getElementsByClassName('table-content')[0];
     var s = `<table>`;
 
     var listDH = getListDonHang();
+    var fromdate=document.getElementById('loctheongay').getElementsByClassName("locdon")[0].value;
+    var todate=document.getElementById('loctheongay').getElementsByClassName("locdon")[1].value;
+
+    var from=new Date(fromdate).toLocaleString();
+    var to=new Date(todate).toLocaleString();
 
     TONGTIEN = 0;
     for (var i = 0; i < listDH.length; i++) {
         var d = listDH[i];
+        if((from<d.ngaygio)&&(to>d.ngaygio))
         s += `<tr>
             <td style="width: 5%">` + (i+1) + `</td>
             <td style="width: 13%">` + d.ma + `</td>
@@ -308,11 +416,11 @@ function addTableDonHang() {
             <td style="width: 10%">` + d.tinhTrang + `</td>
             <td style="width: 10%">
                 <div class="tooltip" onclick="duyet('`+d.ma+`', true)">
-                    <i class="fa fa-check"></i>
+                    <i class="ti-check"></i>
                     <span class="tooltiptext">Duyệt</span>
                 </div>
                 <div class="tooltip">
-                    <i class="fa fa-remove" onclick="duyet('`+d.ma+`', false)"></i>
+                    <i class="ti-close" onclick="duyet('`+d.ma+`', false)"></i>
                     <span class="tooltiptext">Hủy</span>
                 </div>
                 
@@ -321,6 +429,7 @@ function addTableDonHang() {
         TONGTIEN += stringToNum(d.tongtien);
     }
     s += `</table>`;
+
     tc.innerHTML = s;
 }
 function timKiemTheoMa(list, ma) {
@@ -345,7 +454,7 @@ function getListDonHang(traVeDanhSachSanPham = false) {
             // Các sản phẩm - dạng html
             var sps = '';
             for(var s of u[i].donhang[j].sp) {
-                sps += `<p style="text-align: right">`+(timKiemTheoMa(alcoholList, s.ma).tensp + ' [' + s.soluong + ']') + `</p>`;
+                sps += `<p style="text-align: center">`+(timKiemTheoMa(alcoholList, s.ma).tensp + ' [' + s.soluong + ']') + `</p>`;
             }
 
             // Các sản phẩm - dạng mảng
@@ -456,104 +565,4 @@ function xoaNguoiDung(taikhoan) {
             }
         }
     }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//hàm chuyển kiểu dữ liệu
-function stringToNum(str,char){
-    return Number(str.split(char || '.').join(''));
-}
-function numToString(num, char) {
-    return num.toLocaleString().split(',').join(char || '.');
-}
-
-//mở các mục chính
-function eventab(){
-    const opensanpham=document.querySelector('.js-opensanpham')
-    const khungsanpham=document.querySelector('.js-sanpham')
-
-    const opendonhang=document.querySelector('.js-opendonhang')
-    const khungdonhang=document.querySelector('.js-donhang')
-
-    const openkhachhang=document.querySelector('.js-openkhachhang')
-    const khungkhachhang=document.querySelector('.js-khachhang')
-
-    const opentrangchu=document.querySelector('.js-opentrangchu')
-    const khungtrangchu=document.querySelector('.js-trangchu')
-    
-    function showsanpham(){
-        khungsanpham.classList.add('open')
-        khungdonhang.classList.remove('open')
-        khungkhachhang.classList.remove('open')
-        khungtrangchu.classList.remove('open')
-        opensanpham.classList.add('action')
-        opentrangchu.classList.remove('action')
-        openkhachhang.classList.remove('action')
-        opendonhang.classList.remove('action')
-    }
-    opensanpham.addEventListener('click',showsanpham)
-
-    function showdonhang(){
-        khungdonhang.classList.add('open')
-        khungkhachhang.classList.remove('open')
-        khungsanpham.classList.remove('open')
-        khungtrangchu.classList.remove('open')
-        opendonhang.classList.add('action')
-        opentrangchu.classList.remove('action')
-        openkhachhang.classList.remove('action')
-        opensanpham.classList.remove('action')
-    }
-    opendonhang.addEventListener('click',showdonhang)
-
-    function showkhachhang(){
-        khungkhachhang.classList.add('open')
-        khungdonhang.classList.remove('open')
-        khungsanpham.classList.remove('open')
-        khungtrangchu.classList.remove('open')
-        openkhachhang.classList.add('action')
-        opentrangchu.classList.remove('action')
-        opendonhang.classList.remove('action')
-        opensanpham.classList.remove('action')
-    }
-    openkhachhang.addEventListener('click',showkhachhang)
-        
-    
-    function showtrangchu(){
-        khungtrangchu.classList.add('open')
-        khungdonhang.classList.remove('open')
-        khungsanpham.classList.remove('open')
-        khungkhachhang.classList.remove('open')
-        opentrangchu.classList.add('action')
-        openkhachhang.classList.remove('action')
-        opendonhang.classList.remove('action')
-        opensanpham.classList.remove('action')
-    }
-    opentrangchu.addEventListener('click',showtrangchu)
-}
-function setListUser(l) {
-    window.localStorage.setItem('ListUser', JSON.stringify(l));
 }

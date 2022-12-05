@@ -8,37 +8,18 @@ function User(username, pass, ho, ten, email, products, donhang) {
 	this.products = products || [];
 	this.donhang = donhang || [];
 }
-
+//hàm so sánh user
 function equalUser(u1, u2) {
-	return (u1.username == u2.username && u1.pass == u2.pass);x
+	return (u1.username == u2.username && u1.pass == u2.pass);
 }
 
+//
 var adminInfo = [{
     "username": "admin",
     "pass": "adadad"
 }];
 
-// Hàm get set cho người dùng hiện tại đã đăng nhập
-function getCurrentUser() {
-    return JSON.parse(window.localStorage.getItem('CurrentUser')); // Lấy dữ liệu từ localstorage
-}
 
-function setCurrentUser(u) {
-    window.localStorage.setItem('CurrentUser', JSON.stringify(u));
-}
-
-// Hàm get set cho danh sách người dùng
-function getListUser() {
-    var data = JSON.parse(window.localStorage.getItem('ListUser')) || []
-    var l = [];
-    for (var d of data) {
-        l.push(d);
-    }
-    return l;
-}
-function setListUser(l) {
-    window.localStorage.setItem('ListUser', JSON.stringify(l));
-}
 
 // Sau khi chỉnh sửa 1 user 'u' thì cần hàm này để cập nhật lại vào ListUser
 function updateListUser(u, newData) {
@@ -51,6 +32,8 @@ function updateListUser(u, newData) {
     setListUser(list);
 }
 
+
+//đăng nhập
 function logIn(form) {
     // Lấy dữ liệu từ form
     var name = form.username.value;
@@ -92,6 +75,7 @@ function logIn(form) {
     return false;
 }
 
+//Đăng kí
 function signUp(form) {
     var ho = form.ho.value;
     var ten = form.ten.value;
@@ -131,9 +115,14 @@ function signUp(form) {
     return false;
 }
 
+//ĐĂNG XUẤT
 function logOut() {
-    window.localStorage.removeItem('CurrentUser');
-    location.reload();
+    if (getCurrentUser()) {
+        if(window.confirm('Xác nhận đăng xuất ?'))
+        window.localStorage.removeItem('CurrentUser');
+        location.reload();
+    }
+    else {alert("Bạn Chưa Đăng Nhập")}
 }
 
 // Hiển thị form tài khoản, giá trị truyền vào là true hoặc false
@@ -186,13 +175,6 @@ function setupEventTaiKhoan() {
             
         })
     }
-}
-
-
-
-function logOut() {
-    window.localStorage.removeItem('CurrentUser');
-    location.reload();
 }
 
 function addContainTaiKhoan() {
@@ -259,4 +241,28 @@ function addContainTaiKhoan() {
 
         </div> <!-- /taikhoan -->
     </div>`);
+}
+function getCurrentUser() {
+    return JSON.parse(window.localStorage.getItem('CurrentUser')); // Lấy dữ liệu từ localstorage
+}
+// Hàm get set cho người dùng hiện tại đã đăng nhập
+function getCurrentUser() {
+    return JSON.parse(window.localStorage.getItem('CurrentUser')); // Lấy dữ liệu từ localstorage
+}
+
+function setCurrentUser(u) {
+    window.localStorage.setItem('CurrentUser', JSON.stringify(u));
+}
+
+// Hàm get set cho danh sách người dùng
+function getListUser() {
+    var data = JSON.parse(window.localStorage.getItem('ListUser')) || []
+    var l = [];
+    for (var d of data) {
+        l.push(d);
+    }
+    return l;
+}
+function setListUser(l) {
+    window.localStorage.setItem('ListUser', JSON.stringify(l));
 }
