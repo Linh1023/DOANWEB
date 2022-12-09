@@ -6,9 +6,11 @@
   height: 100%;
   overflow-y: auto;
   z-index: 14;
-  background-color: rgba(44, 69, 88, 0.9);
+  /* background-color: rgba(44, 69, 88, 0.9); */
   transition: .2s ease;
   transform: scale(0);
+  background: url(../images/login-hinhnen.jpg);
+  background-repeat: no-repeat;
   /* ẩn đi lúc vào web */
 }
 
@@ -36,8 +38,8 @@
 .taikhoan {
   background: rgba(19, 35, 47, 0.9);
   padding: 40px;
-  max-width: 600px;
-  margin: 30px auto;
+  max-width: 550px;
+  margin: 150px auto;
   border-radius: 4px;
   box-shadow: 0 4px 10px 4px rgba(19, 35, 47, 0.3);
   font-family: Arial, Helvetica, sans-serif;
@@ -51,12 +53,12 @@
 
 .taikhoan a {
   text-decoration: none;
-  color: #1ab188;
+  color: #f3eff1;
   transition: .5s ease;
 }
 
 .taikhoan a:hover {
-  color: #179b77;
+ opacity: 0.5;
 }
 
 .tab-group {
@@ -88,13 +90,13 @@
 }
 
 .tab-group li a:hover {
-  background: #179b77;
+  
   color: #ffffff;
 }
 
 .tab-group .active a {
-  background: #1ab188;
-  color: #ffffff;
+  border-bottom: 4px solid #1161ed;
+  background: rgba(19, 35, 47, 0.9);
 }
 
 .tab-content>div {
@@ -163,14 +165,14 @@
   background-image: none;
   border: 1px solid #a0b3b0;
   color: #ffffff;
-  border-radius: 0;
+  border-radius: 24px;
   transition: border-color .25s ease, box-shadow .25s ease;
 }
 
 .taikhoan input:focus,
 .taikhoan textarea:focus {
   outline: 0;
-  border-color: #1ab188;
+  border-color: #5a706a;
 }
 
 .taikhoan textarea {
@@ -204,13 +206,11 @@
   outline: none;
   border-radius: 0;
   padding: 15px 0;
-  font-size: 2rem;
-  /* https://www.w3schools.com/cssref/css_units.asp */
-  font-weight: 600;
+  font-size: 22px;
+  font-weight: 400;
   text-transform: uppercase;
   letter-spacing: .1em;
   /* khoảng cách giữa các kí tự */
-  background: #1ab188;
   color: #ffffff;
   transition: all 0.5s ease;
   -webkit-appearance: none;
@@ -219,12 +219,14 @@
 
 .taikhoan .button:hover,
 .button:focus {
-  background: #179b77;
+    background: rgba(19, 35, 47, 0.9);;
 }
 
 .taikhoan .button-block {
   display: block;
   width: 100%;
+  background-color: #1161ed;
+  border-radius: 24px;
 }
 
 .taikhoan .forgot {
