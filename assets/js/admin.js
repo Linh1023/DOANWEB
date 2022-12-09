@@ -195,7 +195,7 @@ function addKhungSuaSanPham(masp) {
             </td>
         </tr>
         <tr>
-            <td>Giá tiền ($):</td>
+            <td>Giá tiền (₫):</td>
             <td><input type="text" value="`+stringToNum(sp.gia)+`"></td>
         </tr>
         <tr>

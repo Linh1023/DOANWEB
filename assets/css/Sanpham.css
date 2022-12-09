@@ -58,18 +58,16 @@ html {
 
 }
 .button-value{
-    border: 2px solid #6759ff;
+    border: 2px solid #000;
     padding: 1em ;
     border-radius: 3em;
     background-color: transparent;
-    color: #6759ff;
+    color: #00000058;
     cursor: pointer;
     margin: 5px;
     width:100px;
     font-size: 15px;
     display: inline-block;
-    /* background: red; */
-    
 }
 #soluongsanpham{
   width:100%;font-size:20px;margin-bottom:20px;color:#83897e;
@@ -116,10 +114,10 @@ html {
 }
 
 .item-img img{
-    width: 290px;
+    width: 90%;
     height: 435px;
-    margin-left: 20px;
-    max-height: 450px;
+    margin: 0 auto;
+    display: flex;
 }
 
 .item-information{
@@ -198,271 +196,269 @@ html {
 
 }
 
-    .grid {
-    display: block;
-    max-width: 1000px;
-    margin: 100px auto;
-    padding: 20px;
-    border:1px solid #000;
-   
-    background-color: rgb(255, 255, 255);
-    }  
-  .row {
-    display: flex;
-    flex-wrap: wrap;
-    margin: 0 -14px;
-  }
-  
-  .col {
-    padding: 0 14px;
-  }
-  
-  .l-4 {
-    flex: 0 0 33.33333%;
-    max-width: 33.33333%;
-  }
-  
-  .title {
-    font-size: 28px;
-    margin-bottom: 24px;
-  }
-  
-  .heading {
-    color: #5f1d07;
-  }
-  
-  .sub-heading {
-    color: #666;
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 20px;
-  }
-  
-  .product-image {
-    text-decoration: none;
-    display: block;
-    width: 100%;
-  }
-  
-  .product-image__img {
-    object-fit: contain;
-    width: 100%;
-    box-shadow: 8px 8px 10px 0 rgb(0 0 0 / 21%);
-  }
-  
-  .product-rate {}
-  
-  .part:nth-child(3) {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-  }
-  
-  .part:nth-child(3) {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-  }
-  
-  .part1__customer-rate--hover:hover {
-    color: #ff7010;
-    cursor: pointer;
-    transition: all ease 0.3s;
-  }
-  
-  .part {
-    font-size: 13px;
-    margin-bottom: 8px;
-  }
-  
-  .part1,
-  .part2 {
-    display: flex;
-    align-items: center;
-  }
-  
-  .part2 {
-    margin-left: 12px;
-  }
-  
-  .part__icon {
-    padding-right: 6px;
-  }
-  
-  .part1__customer-rate:first-child {
-    font-size: 13px;
-    opacity: 0.5;
-  }
-  
-  .part1__rate-star-icon {
-    font-size: 14px;
-    padding: 4px 0;
-    cursor: pointer;
-  }
-  
-  .part1__customer-rate {
-    margin: 0;
-    padding: 12px 0;
-  }
-  
-  .part1__rate-star-icon {}
-  
-  .part1__customer-rate {
-    padding: 8px 0;
-  }
-  
-  .part-wrap {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-  }
-  
-  .part__keyword-tag {
-    font-size: 13px;
-  }
-  
-  .part__keyword-tag:hover {
-    color: #ff7010;
-    transition: all ease 0.3s;
-    cursor: pointer;
-  }
-  
-  .contain-price {
-    width: 100%;
-  }
-  
-  .price {
-    background-color: #efece3;
-    padding: 18px;
-    border-bottom: 1px solid #fff;
-  }
-  
-  .price__heading,
-  .price__terms {
-    font-size: 13px;
-    color: #999;
-    margin: 0;
-  }
-  
-  .price__coin {
-    font-size: 26px;
-    color: #960000;
-    font-weight: 600;
-  }
-  
-  .price__terms-link {
-    text-decoration: none;
-    color: #5f1d07;
-  }
-  
-  .price__terms-link:hover {
-    color: #ff7010;
-    cursor: pointer;
-    transition: all ease 0.3s;
-  }
-  
-  .price__terms-link:hover {
-    color: #ff7010;
-  }
-  
-  .compare {
-    font-size: 14px;
-    padding: 18px;
-    background-color: #f6f5f0;
-    border-bottom: 1px solid #fff;
-  }
-  
-  .like {
-    margin-bottom: 8px;
-  }
-  
-  .like,
-  .compare-wrap {
-    opacity: 0.5;
-    cursor: pointer;
-  }
-  
-  .like:hover,
-  .compare-wrap:hover {
-    color: #ff7010;
-    transition: all ease 0.3s;
-  }
-  
-  .support-wrap {
-    font-size: 16px;
-    background-color: #efece3;
-    padding: 18px;
-  }
-  
-  .customer-support {
-    margin-bottom: 8px;
-    font-size: 18px;
-    color: #960000;
-  }
-  
-  .phone {
-    opacity: 0.5;
-  }
-  
-  .phone__number {
-    color: #b39851;
-    cursor: pointer;
-    text-decoration: none;
-  }
-  
-  .product-buy {
-    margin-top: 30px;
-  }
-  
-  .product-buy__btn {
-    font-size: 14px;
-    text-decoration: none;
-    color: #fff;
-    background-color: #b39851;
-    padding: 16px;
-    border-radius: 4px;
-  }
+.grid {
+  display: block;
+  max-width: 1000px;
+  margin: 100px auto;
+  padding: 20px;
+  border:1px solid #000;
+  background-color: rgb(255, 255, 255);
+  min-height: 500px;
+}  
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -14px;
+}
 
-  .product-buy__btn:hover {
-    background-color: #960000;
-    transition: all ease 0.3s;
-    cursor: pointer;
-  }
-  
-  .info-border {
-    border-bottom: 1px solid #b39851;
-    width: 100%;
-    margin: 80px 0;
-  }
-  
-  .info-border::before {
-    content: "THÔNG TIN";
-    display: block;
-    position: absolute;
-    top: 25%;
-    left: 580px;
-    transform: translateY(25%);
-    color: #b39851;
-    padding: 16px;
-    background-color: #fff;
-    font-size: 20px;
-  }
-  
-  .parent-border {
-    position: relative;
-  }
+.col {
+  padding: 0 14px;
+}
 
-  #message {
-    z-index: 200;
-    display: block;
-    position: fixed;
-    top: 40px;
-    right: 5px; 
-    padding: 20px;
-    background-color: #111;
-    opacity: 0;
-    color: white;
-    font-weight: bold;
-    transition: 0.3s;
+.l-4 {
+  flex: 0 0 33.33333%;
+  max-width: 33.33333%;
+}
+
+.title {
+  font-size: 28px;
+  margin-bottom: 24px;
+}
+
+.heading {
+  color: #5f1d07;
+}
+
+.sub-heading {
+  color: #666;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.product-image {
+  text-decoration: none;
+  display: block;
+  width: 100%;
+}
+
+.product-image__img {
+  object-fit: contain;
+  width: 100%;
+  box-shadow: 8px 8px 10px 0 rgb(0 0 0 / 21%);
+}
+
+.product-rate {}
+
+.part:nth-child(3) {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.part:nth-child(3) {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.part1__customer-rate--hover:hover {
+  color: #ff7010;
+  cursor: pointer;
+  transition: all ease 0.3s;
+}
+
+.part {
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+
+.part1,
+.part2 {
+  display: flex;
+  align-items: center;
+}
+
+.part2 {
+  margin-left: 12px;
+}
+
+.part__icon {
+  padding-right: 6px;
+}
+
+.part1__customer-rate:first-child {
+  font-size: 13px;
+  opacity: 0.5;
+}
+
+.part1__rate-star-icon {
+  font-size: 14px;
+  padding: 4px 0;
+  cursor: pointer;
+}
+
+.part1__customer-rate {
+  margin: 0;
+  padding: 12px 0;
+}
+
+.part1__rate-star-icon {}
+
+.part1__customer-rate {
+  padding: 8px 0;
+}
+
+.part-wrap {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.part__keyword-tag {
+  font-size: 13px;
+}
+
+.part__keyword-tag:hover {
+  color: #ff7010;
+  transition: all ease 0.3s;
+  cursor: pointer;
+}
+
+.contain-price {
+  width: 100%;
+}
+
+.price {
+  background-color: #efece3;
+  padding: 18px;
+  border-bottom: 1px solid #fff;
+}
+
+.price__heading,
+.price__terms {
+  font-size: 13px;
+  color: #999;
+  margin: 0;
+}
+
+.price__coin {
+  font-size: 26px;
+  color: #960000;
+  font-weight: 600;
+}
+
+.price__terms-link {
+  text-decoration: none;
+  color: #5f1d07;
+}
+
+.price__terms-link:hover {
+  color: #ff7010;
+  cursor: pointer;
+  transition: all ease 0.3s;
+}
+
+.price__terms-link:hover {
+  color: #ff7010;
+}
+
+.compare {
+  font-size: 14px;
+  padding: 18px;
+  background-color: #f6f5f0;
+  border-bottom: 1px solid #fff;
+}
+
+.like {
+  margin-bottom: 8px;
+}
+
+.like,
+.compare-wrap {
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.like:hover,
+.compare-wrap:hover {
+  color: #ff7010;
+  transition: all ease 0.3s;
+}
+
+.support-wrap {
+  font-size: 16px;
+  background-color: #efece3;
+  padding: 18px;
+}
+
+.customer-support {
+  margin-bottom: 8px;
+  font-size: 18px;
+  color: #960000;
+}
+
+.phone {
+  opacity: 0.5;
+}
+
+.phone__number {
+  color: #b39851;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.product-buy {
+  margin-top: 30px;
+}
+
+.product-buy__btn {
+  font-size: 14px;
+  text-decoration: none;
+  color: #fff;
+  background-color: #b39851;
+  padding: 16px;
+  border-radius: 4px;
+}
+.product-buy__btn:hover {
+  background-color: #960000;
+  transition: all ease 0.3s;
+  cursor: pointer;
+}
+
+.info-border {
+  border-bottom: 1px solid #b39851;
+  width: 100%;
+  margin: 80px 0;
+}
+
+.info-border::before {
+  content: "THÔNG TIN";
+  display: block;
+  position: absolute;
+  top: 25%;
+  left: 580px;
+  transform: translateY(25%);
+  color: #b39851;
+  padding: 16px;
+  background-color: #fff;
+  font-size: 20px;
+}
+
+.parent-border {
+  position: relative;
+}
+#message {
+  z-index: 200;
+  display: block;
+  position: fixed;
+  top: 40px;
+  right: 5px; 
+  padding: 20px;
+  background-color: #111;
+  opacity: 0;
+  color: white;
+  font-weight: bold;
+  transition: 0.3s;
 }

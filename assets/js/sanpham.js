@@ -24,12 +24,12 @@ function addtable(value){
     for(var i=0;i<button.length;i++)
     {
         if(i==u){
-            button[i].style.background = '#6759ff';
+            button[i].style.background = '#626a67';
             button[i].style.color = '#fff';
             continue;
         }
         button[i].style.background="#fff";
-        button[i].style.color="#6759ff";
+        button[i].style.color='#626a67';
     }
 }
 function CreateProduct(masp,tensp,thuonghieu,hinh,gia,sosao,nongdo,dungtich){
@@ -121,7 +121,7 @@ function chuyenDTSPthanhHTML(product){
    html+=                '<div class="item-information">'
    html+=                   ' <h3 class="item-title">'+product.tensp+'</h3>'
    html+=                   '<div class="item-Category">'+product.thuonghieu+'</div>   '
-   html+=                   '<div class="item-price">'+product.gia+'$</div>'
+   html+=                   '<div class="item-price">'+product.gia+'₫</div>'
    html+=                '</div>'
    html+=           ' </div>'
 
@@ -193,7 +193,7 @@ function addKhungItem(masp){
           <div class="contain-price">
               <div class="price">
                   <h3 class="price__heading">GIÁ THAM KHẢO</h3>
-                  <div class="price__coin">`+sp.gia+`<u>$</u></div>
+                  <div class="price__coin">`+sp.gia+`<u>₫</u></div>
                   <div class="price__terms">ĐIỀU KHOẢN <a href="" class="price__terms-link">GIAO HÀNG</a>
                   </div>
               </div>
