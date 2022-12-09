@@ -231,7 +231,6 @@ function numToString(num, char) {
 }
 function timKiemSanPham(inp,value) {
     var text = inp.value.toLowerCase();
-    // alert(text)
     if(text==""){
         addtable(value);return;
     }
@@ -261,16 +260,15 @@ function timKiemSanPham(inp,value) {
 function themVaoGioHang(masp, tensp) {
     var user = getCurrentUser();
     if (!user) {
-        alert('Bạn cần đăng nhập để mua hàng !');
+        addmess('Bạn cần đăng nhập để mua hàng !','#aa0000', '#fff', 10000);
         showTaiKhoan(true);
         return;
     }
     if (user.off) {
-        alert('Tài khoản của bạn hiện đang bị khóa nên không thể mua hàng!');
-        // addAlertBox('Tài khoản của bạn đã bị khóa bởi Admin.', '#aa0000', '#fff', 10000);
+        addmess('Tài khoản của bạn hiện đang bị khóa nên không thể mua hàng!','#aa0000', '#fff', 10000);
+        addmess('Tài khoản của bạn đã bị khóa bởi Admin.', '#aa0000', '#fff', 10000);
         return;
     }
-    alert("Đã Thêm Vào giỏ hàng")
     var t = new Date();
     var daCoSanPham = false;;
 
@@ -291,7 +289,7 @@ function themVaoGioHang(masp, tensp) {
         );
     }
     // animateCartNumber();
-    // addAlertBox('Đã thêm ' + tensp + ' vào giỏ.', '#17c671', '#fff', 3500);
+    addmess('Đã thêm ' + tensp + ' vào giỏ.', '#000', '#fff', 3500);
 
     setCurrentUser(user); // cập nhật giỏ hàng cho user hiện tại
     updateListUser(user); // cập nhật list user
@@ -305,4 +303,19 @@ function getTongSoLuongSanPhamTrongGioHang(u) {
         soluong += p.soluong;
     }
     return soluong;
+}
+function addmess(text, bgcolor, textcolor, time) {
+    var al = document.getElementById('message')
+    var u=document.getElementById('hihi');
+    u.innerHTML = text;
+    al.style.backgroundColor = bgcolor;
+    al.style.opacity = 1;
+    al.style.zIndex = 200;
+
+    if (textcolor) al.style.color = textcolor;
+    if (time)
+        setTimeout(function () {
+            al.style.opacity = 0;
+            al.style.zIndex = 0;
+        }, time);
 }

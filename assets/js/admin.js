@@ -5,8 +5,7 @@ window.onload=function(){
     alcoholList=getalcoholList()||alcoholList;
     //them tab cho admin
     eventab();
-    //tạo bảng
-
+    //tạo bảngf
     addTableProducts(); 
     addTableDonHang();
     addTableKhachHang();
@@ -108,7 +107,10 @@ function getListUser() {
     }
     return l;
 }
-
+////////////////////////////////////////////////////////////////////////thống kê
+function addTableThongKe(value){
+    
+}
 
 //SANPHAM++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //Tạo bảng sản Phẩm
@@ -401,7 +403,6 @@ function addTableDonHang() {
 
     var from=new Date(fromdate).toLocaleString();
     var to=new Date(todate).toLocaleString();
-
     TONGTIEN = 0;
     for (var i = 0; i < listDH.length; i++) {
         var d = listDH[i];
@@ -419,8 +420,8 @@ function addTableDonHang() {
                     <i class="ti-check"></i>
                     <span class="tooltiptext">Duyệt</span>
                 </div>
-                <div class="tooltip">
-                    <i class="ti-close" onclick="duyet('`+d.ma+`', false)"></i>
+                <div class="tooltip" onclick="duyet('`+d.ma+`', false)">
+                    <i class="ti-close"></i>
                     <span class="tooltiptext">Hủy</span>
                 </div>
                 
@@ -485,7 +486,6 @@ function duyet(maDonHang, duyetDon) {
     for(var i = 0; i < u.length; i++) {
         for(var j = 0; j < u[i].donhang.length; j++) {
             if(u[i].donhang[j].ngaymua == maDonHang) {
-                // alert(duyetDon)
                 if(duyetDon) {
                     if(u[i].donhang[j].tinhTrang == 'Đang chờ xử lý') {
                         u[i].donhang[j].tinhTrang = 'Đã giao hàng';
@@ -494,7 +494,6 @@ function duyet(maDonHang, duyetDon) {
                         alert('Không thể duyệt đơn đã hủy !');
                         return;
                     }
-                    // if(u[i].donhang[j].tinhTrang =='Đã giao hàng')
                 } else {
                     if(u[i].donhang[j].tinhTrang == 'Đang chờ xử lý') {
                         if(window.confirm('Bạn có chắc muốn hủy đơn hàng này. Hành động này sẽ không thể khôi phục lại !'))

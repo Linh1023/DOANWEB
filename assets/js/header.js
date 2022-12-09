@@ -20,6 +20,7 @@ function addheader(){
                     <a href="#footer">Liên hệ</a>
                 </div>
             </div>
+
             <div id="actions">
                 <div class="user">
                     <a  onclick="checkTaiKhoan()">

@@ -236,12 +236,12 @@ function thanhToan() {
 	var c_user = getCurrentUser();
 	if(c_user.off) {
         alert('Tài khoản của bạn hiện đang bị khóa nên không thể mua hàng!');
-        // addAlertBox('Tài khoản của bạn đã bị khóa bởi Admin.', '#aa0000', '#fff', 10000);
+        addmess('Tài khoản của bạn đã bị khóa bởi Admin.', '#aa0000', '#fff', 10000);
         return;
 	}
 	
 	if (!currentuser.products.length) {
-		// addAlertBox('Không có mặt hàng nào cần thanh toán !!', '#ffb400', '#fff', 2000);
+		addmess('Không có mặt hàng nào cần thanh toán !!', '#ffb400', '#fff', 2000);
 		return;
 	}
 	if (window.confirm('Thanh toán giỏ hàng ?')) {
@@ -252,7 +252,7 @@ function thanhToan() {
 		});
 		currentuser.products = [];
 		capNhatMoiThu();
-		// addAlertBox('Các sản phẩm đã được gửi vào đơn hàng và chờ xử lý.', '#17c671', '#fff', 4000);
+		addmess('Các sản phẩm đã được gửi vào đơn hàng và chờ xử lý.', '#17c671', '#fff', 4000);
 	
 	}
 }
@@ -310,4 +310,18 @@ function capNhatMoiThu() { // Mọi thứ
 	addProductToTable(currentuser);
 
 	// Cập nhật trên header
+}
+function addmess(text, bgcolor, textcolor, time) {
+    var al = document.getElementById('message');
+    al.getElementById('hihi').innerHTML = text;
+    al.style.backgroundColor = bgcolor;
+    al.style.opacity = 1;
+    al.style.zIndex = 200;
+
+    if (textcolor) al.style.color = textcolor;
+    if (time)
+        setTimeout(function () {
+            al.style.opacity = 0;
+            al.style.zIndex = 0;
+        }, time);
 }

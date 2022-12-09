@@ -446,3 +446,16 @@ html {
     position: relative;
   }
 
+  #message {
+    z-index: 200;
+    display: block;
+    position: fixed;
+    top: 40px;
+    right: 5px; 
+    padding: 20px;
+    background-color: #111;
+    opacity: 0;
+    color: white;
+    font-weight: bold;
+    transition: 0.3s;
+}
