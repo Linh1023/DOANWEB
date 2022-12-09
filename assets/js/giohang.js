@@ -40,7 +40,7 @@ function addProductToTable(user) {
 			<tr>
 				<td colspan="7"> 
 					<h1 style="color:green; background-color:yellow; font-weight:bold; text-align:center; padding: 15px 0;">
-						Giỏ hàng của bạn trống !!
+						Danh Sách Trống!!!
 					</h1> 
 				</td>
 			</tr>
@@ -107,7 +107,6 @@ function addProductToTable1(user) {
 				<th>Số lượng</th>
 				<th>Giá tiền</th>
 				<th>Tổng Tiền</th>
-				<th>Thêm vào giỏ lúc</th>
 				<th>Thanh toán lúc</th>
 			</tr>`;
 
@@ -128,7 +127,7 @@ function addProductToTable1(user) {
 			<tr>
 				<td colspan="7"> 
 					<h1 style="color:green; background-color:yellow; font-weight:bold; text-align:center; padding: 15px 0;">
-						Giỏ hàng của bạn trống !!
+						Danh Sách Trống !!
 					</h1> 
 				</td>
 			</tr>
@@ -141,32 +140,31 @@ function addProductToTable1(user) {
     
     s+=`<table>`
 	for (var i = 0; i < user.donhang.length; i++) {
-		var masp = user.donhang[i].sp[0].ma;
-		var soluongSp = user.donhang[i].sp[0].soluong;
-		var p = timKiemTheoMa(alcoholList, masp);
-		var thoigiandat = new Date(user.donhang[i].ngaymua).toLocaleString();
-		var thoigianduyet = new Date(user.donhang[i].sp[0].date).toLocaleString();
-		var thanhtien = stringToNum(p.gia) * soluongSp;
+		for(var j = 0;j<user.donhang[i].sp.length;j++){
+			var masp = user.donhang[i].sp[j].ma;
+			var soluongSp = user.donhang[i].sp[j].soluong;
+			var p = timKiemTheoMa(alcoholList, masp);
+			// var thoigiandat = new Date(user.donhang[i].ngaymua).toLocaleString();
+			var thoigianduyet = new Date(user.donhang[i].sp[0].date).toLocaleString();
+			var thanhtien = stringToNum(p.gia) * soluongSp;
 
-		s += `
-
-			<tr>
-				<td>` + (i + 1) + `</td>
-				<td >
-				`+p.tensp+`
-				</td>
-				<td class="soluong" >
-					` + soluongSp + `
-				</td>
-				<td class="alignRight">` + p.gia + ` ₫</td>
-				<td class="alignRight">` + numToString(thanhtien) + ` ₫</td>
-				<td style="text-align: center" >` + thoigiandat + `</td>
-				<td style="text-align: center" >` + thoigianduyet + `</td>
-			</tr>
-		`;
-		// Chú ý nháy cho đúng ở giamsoluong, tangsoluong
-		totalPrice += thanhtien;
-
+			s += `
+				<tr>
+					<td>` + (i + 1) + `</td>
+					<td >
+					`+p.tensp+`
+					</td>
+					<td class="soluong" >
+						` + soluongSp + `
+					</td>
+					<td class="alignRight">` + p.gia + ` ₫</td>
+					<td class="alignRight">` + numToString(thanhtien) + ` ₫</td>
+					<td style="text-align: center" >` + thoigianduyet + `</td>
+				</tr>
+			`;
+			// Chú ý nháy cho đúng ở giamsoluong, tangsoluong
+			totalPrice += thanhtien;
+		}
 	}
 	s += `
 			<tr style="font-weight:bold; text-align:center">
@@ -240,10 +238,6 @@ function thanhToan() {
         return;
 	}
 	
-	if (!currentuser.products.length) {
-		addmess('Không có mặt hàng nào cần thanh toán !!', '#ffb400', '#fff', 2000);
-		return;
-	}
 	if (window.confirm('Thanh toán giỏ hàng ?')) {
 		currentuser.donhang.push({
 			"sp": currentuser.products,
@@ -312,8 +306,9 @@ function capNhatMoiThu() { // Mọi thứ
 	// Cập nhật trên header
 }
 function addmess(text, bgcolor, textcolor, time) {
-    var al = document.getElementById('message');
-    al.getElementById('hihi').innerHTML = text;
+    var al = document.getElementById('hihi');
+    al.innerHTML = text;
+
     al.style.backgroundColor = bgcolor;
     al.style.opacity = 1;
     al.style.zIndex = 200;

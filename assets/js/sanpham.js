@@ -305,9 +305,9 @@ function getTongSoLuongSanPhamTrongGioHang(u) {
     return soluong;
 }
 function addmess(text, bgcolor, textcolor, time) {
-    var al = document.getElementById('message')
-    var u=document.getElementById('hihi');
-    u.innerHTML = text;
+    var al = document.getElementById('hihi');
+    al.innerHTML = text;
+
     al.style.backgroundColor = bgcolor;
     al.style.opacity = 1;
     al.style.zIndex = 200;
