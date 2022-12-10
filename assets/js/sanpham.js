@@ -279,7 +279,6 @@ function themVaoGioHang(masp, tensp) {
             break;
         }
     }
-
     if (!daCoSanPham) { // nếu không trùng thì mới thêm sản phẩm vào user.products
         user.products.push({
             "ma": masp,
@@ -305,8 +304,9 @@ function getTongSoLuongSanPhamTrongGioHang(u) {
     return soluong;
 }
 function addmess(text, bgcolor, textcolor, time) {
-    var al = document.getElementById('hihi');
-    al.innerHTML = text;
+    var al = document.getElementById('message');
+    var a = document.getElementById('hihi');
+    a.innerHTML = text;
 
     al.style.backgroundColor = bgcolor;
     al.style.opacity = 1;

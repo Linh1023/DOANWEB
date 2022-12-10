@@ -16,7 +16,7 @@ function equalUser(u1, u2) {
 //
 var adminInfo = [{
     "username": "admin",
-    "pass": "adadad"
+    "pass": "nhom18"
 }];
 
 

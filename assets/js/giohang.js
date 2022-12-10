@@ -9,6 +9,7 @@ function timKiemTheoMa(list, ma) {
         if (l.masp == ma) return l;
     }
 }
+//Danh Sách sảm phẩm trong giỏ hàng
 function addProductToTable(user) {
 	var table = document.getElementsByClassName('listSanPham')[0];
 	var s = `
@@ -102,7 +103,7 @@ function addProductToTable1(user) {
 	var s = `
 		<tbody>
 			<tr class="sub-information">
-				<th>STT</th>
+				<th>ID</th>
 				<th>Tên Sản phẩm</th>
 				<th>Số lượng</th>
 				<th>Giá tiền</th>
@@ -306,8 +307,9 @@ function capNhatMoiThu() { // Mọi thứ
 	// Cập nhật trên header
 }
 function addmess(text, bgcolor, textcolor, time) {
-    var al = document.getElementById('hihi');
-    al.innerHTML = text;
+    var al = document.getElementById('message');
+    var a = document.getElementById('hihi');
+    a.innerHTML = text;
 
     al.style.backgroundColor = bgcolor;
     al.style.opacity = 1;
