@@ -6,10 +6,9 @@
   height: 100%;
   overflow-y: auto;
   z-index: 14;
-  /* background-color: rgba(44, 69, 88, 0.9); */
+  background-color: rgba(44, 69, 88, 0.9);
   transition: .2s ease;
   transform: scale(0);
-  background: url(../images/login-hinhnen.jpg);
   background-repeat: no-repeat;
   /* ẩn đi lúc vào web */
 }
