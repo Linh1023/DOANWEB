@@ -13,6 +13,9 @@
     <script src="./assets/js/admin.js"></script>
     <script src="./assets/js/products.js"></script>
     <script src="./assets/js/login.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+
 </head>
 <body>
     <div class="body">
@@ -38,14 +41,12 @@
             
             <!-- Khung hiển thị chính -->
             <div class="main">
+
                 <!-- trangchu -->
-                <div class="js-trangchu trangchu">Thống Kê
-                    <div id="loctheongaythongke">
-                        Từ  ngày <input type="datetime-local" class="khoangthoigian">
-                        Đến ngày <input type="datetime-local" class="khoangthoigian">
-                        <input type="button" value="Lọc">
-                    </div>
-                     
+                <div class="js-trangchu trangchu">
+                    <div class="trangchu1"></div>
+                    <canvas id="myChart" style="width:100%;max-width:1000px"></canvas>
+                    <canvas id="myChart1" style="width:100%;max-width:1000px"></canvas>
                 </div>
                 <!-- Sản Phẩm -->
                 <div class="sanpham js-sanpham">

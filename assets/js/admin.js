@@ -9,6 +9,7 @@ window.onload=function(){
     addTableProducts(); 
     addTableDonHang();
     addTableKhachHang();
+    addTableThongKe();
         
     } else {
         document.body.innerHTML = `<h1  style="background-color:pink; color:red; with:100%; text-align:center; margin: 50px;"> Bạn Chưa Đăng Nhập ADMIN </h1>`;
@@ -108,8 +109,164 @@ function getListUser() {
     return l;
 }
 ////////////////////////////////////////////////////////////////////////thống kê
-function addTableThongKe(value){
-    
+function addTableThongKe(){
+
+    function timsanpham(danhsachsanphamdaban){
+        var max=0;
+        for(s of danhsachsanphamdaban){
+            if(s.soluong>max)
+            max=s.soluong
+        }
+        for(s of danhsachsanphamdaban){
+            if(max==s.soluong)
+            return s.masp;
+        }
+    }
+    var user=getListUser();
+    var soluongkhachhang=user.length;
+    var tongsoluongdonhang=0;
+    var tongsoluongsanpham=0;
+    var tonggiatri=0;
+    var giatritrungbinhdon;
+    var danhsachsanphamdaban=[];
+    for (var i = 0; i < user.length; i++) {
+        for(var j=0;j<user[i].donhang.length;j++)
+        {
+            tongsoluongsanpham+=user[i].donhang[j].sp.length; 
+            for(u=0;u<user[i].donhang[j].sp.length;u++){
+                var masp = user[i].donhang[j].sp[u].ma;
+      			var p = timKiemTheoMa(alcoholList, masp);
+        		var soluongSp = user[i].donhang[j].sp[u].soluong;
+                tonggiatri+=(stringToNum(p.gia)*soluongSp)
+                var daCoSanPham = false;
+                for (var x = 0; x < danhsachsanphamdaban.length; x++) { // check trùng sản phẩm
+                    if (danhsachsanphamdaban[x].masp == masp) {
+                        danhsachsanphamdaban[x].soluong++;
+                        daCoSanPham = true;
+                        break;
+                    }
+                }
+                if (!daCoSanPham) { // nếu không trùng thì mới thêm sản phẩm vào danhsachsanphamdaban
+                    danhsachsanphamdaban.push({
+                        "masp": p.masp,
+                        "thuonghieu":p.thuonghieu,
+                        "soluong": 1,
+                        "gia":p.gia
+                    });
+                }
+            }
+        }
+            tongsoluongdonhang+=user[i].donhang.length;           
+    }
+    giatritrungbinhdon=numToString(tonggiatri/tongsoluongdonhang-(tonggiatri/tongsoluongdonhang)%1)
+    var sanphambanchay=timsanpham(danhsachsanphamdaban)
+    var thongkehang=[];
+    console.log(danhsachsanphamdaban)
+    for(s of danhsachsanphamdaban)
+    {
+        var dacohang=false;
+        for (var x = 0; x < thongkehang.length; x++) { // check trùng sản phẩm
+            if (thongkehang[x].tenhang == s.thuonghieu) {
+                thongkehang[x].soluong+=s.soluong;
+                thongkehang[x].doanhthu+stringToNum(s.gia)*s.soluong;
+                dacohang = true;
+                break;
+            }
+        }
+        if (!dacohang) { // nếu không trùng thì mới thêm sản phẩm vào thongkehang
+            thongkehang.push({
+                "tenhang":s.thuonghieu,
+                "soluong": s.soluong,
+                "doanhthu": stringToNum(s.gia)*s.soluong
+            });
+        }
+    }
+
+    var xuat=`<div class="statistical">
+    <div class="item-statistical">
+        Tổng số đơn hàng đã bán: <div class="num">`+tongsoluongdonhang+`</div>
+    </div>
+    <div class="item-statistical">
+        Tổng số lượng khách hàng: <div class="num">`+soluongkhachhang+`</div>
+    </div>
+    <div class="item-statistical">
+        Tổng số rượu đã bán là: <div class="num">`+tongsoluongsanpham+`</div>
+    </div>
+    <div class="item-statistical">
+        Tổng doanh số là: <div class="num">`+numToString(tonggiatri)+` VND</div>
+    </div>
+    <div class="item-statistical">
+        Sản phẩm bán chạy nhất là : <div style="font-size:20px"class="num">`+timKiemTheoMa(alcoholList,sanphambanchay).tensp+` - `+timKiemTheoMa(danhsachsanphamdaban,sanphambanchay).soluong+` sản phẩm</div>
+    </div>
+    <div class="item-statistical">
+        Giá trị trung bình đơn: <div class="num">`+giatritrungbinhdon+` VND</div>
+    </div>
+    </div>`
+    bieudosoluong(thongkehang);
+    bieudohang(thongkehang);
+    function bieudohang(thongkehang){
+        var xValues = [];
+        var yValues = [];
+        for(var s=0;s<thongkehang.length;s++){
+            xValues[s]=thongkehang[s].tenhang;
+            yValues[s]=thongkehang[s].doanhthu;
+        }
+        var barColors = [
+            "#b91d47",
+            "#00aba9",
+            "#e8c3b9"
+        ];
+        new Chart("myChart", {
+            type: "doughnut",
+            data: {
+                labels: xValues,
+                datasets: [{
+                    backgroundColor: barColors,
+                    data: yValues
+                }]
+            },
+            options: {
+                title: {
+                    display: true   ,
+                    text: "THÔNG KÊ THEO DOANH SỐ BÁN HÀNG 2022",
+                    font: 20
+                },
+            }
+        });
+    }
+    function bieudosoluong(thongkehang){
+        var xValues = [];
+        var yValues = [];
+        for(var s=0;s<thongkehang.length;s++){
+            xValues[s]=thongkehang[s].tenhang;
+            yValues[s]=thongkehang[s].soluong;
+        }
+        var barColors = [
+            "#b91d47",
+            "#00aba9",
+            "#e8c3b9"
+        ];
+        new Chart("myChart1", {
+            type: "doughnut",
+            data: {
+                labels: xValues,
+                datasets: [{
+                    backgroundColor: barColors,
+                    data: yValues
+                }]
+            },
+            options: {
+                title: {
+                    display: true   ,
+                    text: "SỐ LƯỢNG THEO BÁN HÀNG 2022",
+                    font: 20
+                },
+            }
+        });
+    }
+
+var trangchu=document.getElementsByClassName('trangchu1')[0];
+trangchu.innerHTML=xuat;
 }
 
 //SANPHAM++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

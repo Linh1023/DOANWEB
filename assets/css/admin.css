@@ -103,6 +103,7 @@ table{
 /* trang chu */
 .trangchu{
     display: none;
+    padding:20px;
 }
 /* san pham */
 .sanpham{
@@ -266,9 +267,29 @@ table{
 .khachhang{
     display: none;
 }
-#loctheongay *{
+.statistical{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-template-rows:auto auto auto auto auto;
+}
+.item-statistical{
+    border-radius: 40px 20px;
+    padding: 20px;
+    background-color: #202930;
+    width: 200px;
+    border: 1px solid #000;
+    margin: 10px;
+}
+.locdon{
     color:#000;
 }
-.loctheongay *{
-    color:#000;
+canvas{
+    border: 5px solid #2d40e7;
+    border-radius: 20px 20px;
+    padding-bottom: 20px;
+    
+}
+.num{
+    font-size: 30px;
+    float:right;
 }

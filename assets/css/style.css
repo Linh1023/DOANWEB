@@ -296,6 +296,46 @@ html {
 }
 
 
+#introduce{
+    background-color: #f2e09957;
+    padding:50px 100px 40px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+#introduce h2{
+    
+}
+#introduce p{
+    margin:20px 0 10px;
+    opacity:0.6;
+}
+#introduce .trademarks{
+    display: flex;
+
+}
+#introduce .trademark{
+    width: 30%;
+    margin: 0 auto;
+    padding:20px 0 50px;
+}
+#introduce .img-trademark img{
+    width:300px;
+}
+#introduce .describe{
+    font-size: 25px;
+    font-weight: 650;
+}
+#introduce button{
+    background-color: rgb(177, 0, 0);
+    color: #fff;
+    border: none;
+    padding: 20px;
+}
+#introduce button:hover{
+    background-color: rgb(128, 2, 2);
+
+}
+
 
 
 #footer {

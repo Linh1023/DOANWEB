@@ -29,26 +29,19 @@
     text-transform: uppercase;
     cursor: pointer;
    line-height:100px;
-   padding:0 20px;
-  /* border: 1px solid rgba(0, 0, 0, 0.035); */
+   min-width: 100px;
 }
 
 #menu .item:hover {
-    background-color: rgba(0, 0, 0, 0.184);
+    background-color: rgba(0, 0, 0, 0.056);
 }
 
 #menu .item a {
     color: #1e2824;
     text-decoration: none;
     display: block;
+    text-align: center;
 }
-
-/* #menu .item li a {
-    color: #626A67;
-    text-decoration: none;
-    text-align: left;
-} */
-
 
 #menu .subnav li:hover a {
     color: #000;
