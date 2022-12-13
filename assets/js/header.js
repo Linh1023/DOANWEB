@@ -10,7 +10,7 @@ function addheader(){
                 </div>
                 <div class="item">
                     <li>
-                        <a href="./sanpham.html">Sản phẩm </a>
+                        <a href="./SanPham.html">Sản phẩm </a>
                     </li>
                 </div>
                 <div class="item">
