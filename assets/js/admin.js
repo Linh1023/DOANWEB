@@ -132,8 +132,8 @@ function addTableThongKe(){
     for (var i = 0; i < user.length; i++) {
         for(var j=0;j<user[i].donhang.length;j++)
         {
-            tongsoluongsanpham+=user[i].donhang[j].sp.length; 
             for(u=0;u<user[i].donhang[j].sp.length;u++){
+                tongsoluongsanpham+=user[i].donhang[j].sp[u].soluong; 
                 var masp = user[i].donhang[j].sp[u].ma;
       			var p = timKiemTheoMa(alcoholList, masp);
         		var soluongSp = user[i].donhang[j].sp[u].soluong;
@@ -141,7 +141,7 @@ function addTableThongKe(){
                 var daCoSanPham = false;
                 for (var x = 0; x < danhsachsanphamdaban.length; x++) { // check trùng sản phẩm
                     if (danhsachsanphamdaban[x].masp == masp) {
-                        danhsachsanphamdaban[x].soluong++;
+                        danhsachsanphamdaban[x].soluong+=soluongSp;
                         daCoSanPham = true;
                         break;
                     }
@@ -150,7 +150,7 @@ function addTableThongKe(){
                     danhsachsanphamdaban.push({
                         "masp": p.masp,
                         "thuonghieu":p.thuonghieu,
-                        "soluong": 1,
+                        "soluong": soluongSp,
                         "gia":p.gia
                     });
                 }
