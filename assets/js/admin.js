@@ -258,7 +258,7 @@ function addTableThongKe(){
             options: {
                 title: {
                     display: true   ,
-                    text: "SỐ LƯỢNG THEO BÁN HÀNG 2022",
+                    text: "THỐNG KÊ THEO SỐ LƯỢNG BÁN HÀNG 2022",
                     font: 20
                 },
             }
