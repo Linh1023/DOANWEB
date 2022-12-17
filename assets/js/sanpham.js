@@ -1,20 +1,20 @@
 window.onload=function(){
     alcoholList=getalcoholList()||alcoholList;
-    addtable('All');
+    addtable('All',1);
 }
 function getalcoholList() {
     return JSON.parse(window.localStorage.getItem('alcoholList'));
 }
-function addtable(value){
+function addtable(value,thispage){
     //Chuyển ds đối tượng SP sang HTML
     var HTML=`<div class="search">
     <input class="khungtimkiem" type="text" placeholder="Tìm kiếm..." onkeyup="timKiemSanPham(this,'`+value+`')">
   </div>`;
-    // HTML+=`<input >`
-    HTML += ChuyenDSDTSPthanhHTML(alcoholList,value);
+    HTML += ChuyenDSDTSPthanhHTML(alcoholList,value,thispage);
     //Gắn đoạn HTML vào ListProducts
     var nodeProducts = document.getElementById("list-products");
     nodeProducts.innerHTML = HTML;
+
     var button=document.getElementsByClassName('button-value');
     var u;
     if(value=="All")u=0;
@@ -31,6 +31,8 @@ function addtable(value){
         button[i].style.background="#fff";
         button[i].style.color='#626a67';
     }
+    var trang=document.getElementsByClassName('listpage')[0].getElementsByClassName('lilistpage')[thispage-1];
+    trang.style.background="#ccc";
 }
 function CreateProduct(masp,tensp,thuonghieu,hinh,gia,sosao,nongdo,dungtich){
     var product = new Object();
@@ -58,10 +60,12 @@ function CreateProduct(masp,tensp,thuonghieu,hinh,gia,sosao,nongdo,dungtich){
     return product;
 }
 var soitemtrongdanhmuc;
-function ChuyenDSDTSPthanhHTML(alcoholList,value){
+function ChuyenDSDTSPthanhHTML(alcoholList,value,thispage){
+    var mangdstam=[];
     var dem=0;
     var giatritren=document.getElementsByClassName('khoanggiatien')[1].value;
     var giatriduoi=document.getElementsByClassName('khoanggiatien')[0].value;
+    //ham dem so san pham
     for(var i = 0;i<alcoholList.length;i++){
         if(giatriduoi!=''&&giatritren!='')
         {  
@@ -79,26 +83,47 @@ function ChuyenDSDTSPthanhHTML(alcoholList,value){
     var HTMLlistProducts = ' <div id="soluongsanpham">Tìm thấy '+dem+' sản phẩm </div> <div class="items">';
 
     for(var i = 0;i<alcoholList.length;i++){
-        
-            if(giatriduoi!=''&&giatritren!='')
-            {  
-                if((alcoholList[i].thuonghieu==value||value=='All')&&(stringtoNum(alcoholList[i].gia)>giatriduoi&&stringtoNum(alcoholList[i].gia)<giatritren)){
-                    var product = alcoholList[i];
-                    var htmlProducts = chuyenDTSPthanhHTML(product);
-                    HTMLlistProducts = HTMLlistProducts + htmlProducts;
-                }
+        if(alcoholList[i].thuonghieu==value||value=='All'){
+            if(giatriduoi!=''&&giatritren!=''){
+                if(stringtoNum(alcoholList[i].gia)>giatriduoi&&stringtoNum(alcoholList[i].gia)<giatritren)
+                    mangdstam.push(alcoholList[i]);
             }
             else
-            if(alcoholList[i].thuonghieu==value||value=='All'){
-                var product = alcoholList[i];
+                mangdstam.push(alcoholList[i]);
+        }
+    }
+        var sosp1trang=10;
+        var sotrang;
+
+        if(mangdstam.length % sosp1trang==0)
+            sotrang=mangdstam.length/sosp1trang;
+        else sotrang=(mangdstam.length-(mangdstam.length%sosp1trang))/sosp1trang+1;
+
+        let begin=(thispage-1)*sosp1trang;
+        let end=(thispage)*sosp1trang;
+
+        for(var i=begin;i<end;i++){
+            if(mangdstam[i]){
+
+                var product = mangdstam[i];
                 var htmlProducts = chuyenDTSPthanhHTML(product);
                 HTMLlistProducts = HTMLlistProducts + htmlProducts;
-
-
             }
-
-    }
+        }
+        mangdstam.splice(0,mangdstam.length);
+    
     HTMLlistProducts = HTMLlistProducts + '</div>'
+    HTMLlistProducts +=`<ul class="listpage">`
+
+    if(thispage>1)
+    HTMLlistProducts+=`<li  onclick="addtable('`+value+`',`+(thispage-1)+`)">Prev</li>`
+
+    for(var i=1;i<=sotrang;i++)
+    HTMLlistProducts+=`<li class="lilistpage" onclick="addtable('`+value+`',`+i+`)">`+i+`</li>`
+
+    if(thispage<sotrang)
+    HTMLlistProducts+=`<li  onclick="addtable('`+value+`',`+(thispage+1)+`)">Next</li>`
+    HTMLlistProducts+=`</ul>`
     
     return HTMLlistProducts;
 }
@@ -232,7 +257,7 @@ function numToString(num, char) {
 function timKiemSanPham(inp,value) {
     var text = inp.value.toLowerCase();
     if(text==""){
-        addtable(value);return;
+        addtable(value,thispage);return;
     }
     // Lọc
     var dem=0;

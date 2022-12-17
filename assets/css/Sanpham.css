@@ -447,6 +447,27 @@ html {
 .parent-border {
   position: relative;
 }
+.listpage{
+  padding: 20px;
+  text-align: center;
+  list-style: none;
+}
+.listpage li{
+  padding:10px 15px;
+  background-color: rgb(157, 110, 110);
+  display: inline-block;
+  margin:0 10px;
+}
+
+.listpage li:hover{
+  background-color: rgb(159, 132, 132);
+  cursor: pointer;
+}
+.listpage .active{
+  background-color: #2ea678;
+}
+
+
 #message {
   z-index: 200;
   display: block;

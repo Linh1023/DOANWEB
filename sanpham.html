@@ -28,16 +28,17 @@
         <h2>SẢN PHẨM CỦA CHÚNG TÔI</h2>
         <input placeholder="Giá trị dưới..." class="khoanggiatien" value="" type="number" >₫ -
         <input placeholder="Giá trị trên..." class="khoanggiatien" value="" type="number" >₫
-        <input type="button" value="Lọc" class="khoanggiatien" onclick="addtable('All')">
+        <input type="button" value="Lọc" class="khoanggiatien" onclick="addtable('All',1)">
         <div id="buttons">
-          <input type="button" class="button-value" value="All" onclick="addtable(value)">
-          <input type="button" class="button-value" value="Rum" onclick="addtable(value)">
-          <input type="button" class="button-value" value="Whisky" onclick="addtable(value)">
-          <input type="button" class="button-value" value="Vodka" onclick="addtable(value)">
+          <input type="button" class="button-value" value="All" onclick="addtable(value,1)">
+          <input type="button" class="button-value" value="Rum" onclick="addtable(value,1)">
+          <input type="button" class="button-value" value="Whisky" onclick="addtable(value,1)">
+          <input type="button" class="button-value" value="Vodka" onclick="addtable(value,1)">
         </div>
         <section id="list-products">
           <div id="soluongsanpham"></div>
         </section>
+        
         <div id="khungchitietsanpham" class="overclass"></div>
       </div>
       <div id="message">
