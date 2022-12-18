@@ -32,7 +32,7 @@ function addtable(value,thispage){
         button[i].style.color='#626a67';
     }
     var trang=document.getElementsByClassName('listpage')[0].getElementsByClassName('lilistpage')[thispage-1];
-    trang.style.background="#ccc";
+    trang.style.background="#70c4c3";
 }
 function CreateProduct(masp,tensp,thuonghieu,hinh,gia,sosao,nongdo,dungtich){
     var product = new Object();
@@ -117,12 +117,18 @@ function ChuyenDSDTSPthanhHTML(alcoholList,value,thispage){
 
     if(thispage>1)
     HTMLlistProducts+=`<li  onclick="addtable('`+value+`',`+(thispage-1)+`)">Prev</li>`
+    else HTMLlistProducts+=`<li  style="background-color:#ccc">Prev</li>`
+
 
     for(var i=1;i<=sotrang;i++)
     HTMLlistProducts+=`<li class="lilistpage" onclick="addtable('`+value+`',`+i+`)">`+i+`</li>`
 
     if(thispage<sotrang)
     HTMLlistProducts+=`<li  onclick="addtable('`+value+`',`+(thispage+1)+`)">Next</li>`
+    else
+    HTMLlistProducts+=`<li  style="background-color:#ccc"">Next</li>`
+
+
     HTMLlistProducts+=`</ul>`
     
     return HTMLlistProducts;
