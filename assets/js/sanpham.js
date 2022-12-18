@@ -92,7 +92,7 @@ function ChuyenDSDTSPthanhHTML(alcoholList,value,thispage){
                 mangdstam.push(alcoholList[i]);
         }
     }
-        var sosp1trang=10;
+        var sosp1trang=6;
         var sotrang;
 
         if(mangdstam.length % sosp1trang==0)
