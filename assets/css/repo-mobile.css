@@ -1,0 +1,110 @@
+@media (max-width: 800px) {
+    #header{
+       height: 50px;
+       padding:0;
+    }
+    #header .logo{
+        display: none;
+    }
+    #header .menu_repo{
+        padding:0 23px;
+        display: block !important;
+    }
+    #header .menu_repo .menu-icon{
+        line-height: 50px;;
+    }
+    #header #menu{
+        display: none;
+        /* display: inline-block; */
+        background-color: #ccc;
+        width: 100%;
+        position: absolute;
+        top:49px;
+        left:0;
+    }
+    #header #menu .item{
+        line-height:40px;
+    }
+    #header #menu .item a{
+        text-align: left;
+        padding-left:20px;
+    }
+    #header #actions >*{
+        padding:0 10px;
+        margin:0;
+    }
+    #banner{
+        width:100%;
+        padding:0px 20px;
+        margin-top: 50px;
+    }
+    #banner .box-right img{
+        display: none;
+    }
+    #banner .box-left h2{
+        font-size: 30px;
+    }
+    #banner .box-left button{
+        width:100%;
+    }
+    #about{
+        padding: 20px 20px;
+    }
+    .container {
+        width: 100%;
+        min-width: 500px;
+    }
+    #wp-products{
+        margin-top :50px;
+        padding: 0 0 20px;
+    }
+    #wp-products .item ,#list-products .items .item{
+        width: 150px;
+        height:450px;
+        font-size: 15px;
+    }
+    #wp-products .item .item-img{
+        height:250px;
+        margin-bottom: 5px;
+    }
+    #wp-products .more-product{
+        margin:0 30px;
+        padding:10px 0;
+    }
+    #introduce{
+        padding:30px 0 20px;
+        margin:0 auto;
+    }
+    #introduce .trademarks{
+        display: inline-block;
+        padding:20px 10px 20px;
+        
+    }
+    #introduce .trademarks .trademark{
+        margin:0 auto;
+        width: 100%;
+    }
+    #footer{
+        padding: 30px 30px;
+        height:auto;
+        display:inline-block;
+        margin: 0 auto;
+    }
+    #footer input{
+        width:80%;
+        margin: 0 auto;
+    }
+    #footer .box:first-child{
+        margin: 0 auto;
+    }
+    .khoanggiatien{
+        margin: 6px;
+        width: 20%;
+    }
+    #list-products .items .item .item-img img{
+        height: 100%;
+    }
+    .item-information .item-price{
+        font-size: 22px;
+    }
+ }

@@ -319,7 +319,7 @@ html {
     padding:20px 0 50px;
 }
 #introduce .img-trademark img{
-    width:300px;
+    width:100%;
 }
 #introduce .describe{
     font-size: 25px;

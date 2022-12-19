@@ -14,7 +14,9 @@
     z-index: 5;
     border-bottom:1px solid rgba(44, 35, 35, 0.164) ;
 }
-
+#header .repo{
+    display: none;
+}
 #header .logo a img {
     width: 75%;
 }

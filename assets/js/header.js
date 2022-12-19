@@ -1,6 +1,7 @@
 function addheader(){
     document.write(`
         <div id="header" class="container">
+            <div class="repo menu_repo" id="mobile-menu"> <i class="ti-menu menu-icon"></i></div>
             <a href="index.html" target="_parent" class="logo">
                 <img src="assets/images/logowine.png" alt="">
             </a>
@@ -37,6 +38,15 @@ function addheader(){
             </div>
         </div>
 `);
+        var menu=document.getElementById('menu');
+        var mobileMenu=document.getElementById('mobile-menu')
+
+        var menuHeight=menu.clientHeight;
+        mobileMenu.onclick=function(){
+            var isClosed = menu.clientHeight===menuHeight;
+            if(isClosed)menu.style.display='inline-block';
+            else menu.style.display='none';
+        }
 addContainTaiKhoan();
 setupEventTaiKhoan();
 capNhat_ThongTin_CurrentUser();
