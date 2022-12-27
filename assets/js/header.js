@@ -41,10 +41,12 @@ function addheader(){
         var menu=document.getElementById('menu');
         var mobileMenu=document.getElementById('mobile-menu')
 
-        var menuHeight=menu.clientHeight;
         mobileMenu.onclick=function(){
-            var isClosed = menu.clientHeight===menuHeight;
-            if(isClosed)menu.style.display='inline-block';
+            var isClosed = menu.clientHeight===0;
+            console.log(isClosed)
+            console.log(menu.clientHeight)
+
+            if(isClosed) menu.style.display='inline-block';
             else menu.style.display='none';
         }
 addContainTaiKhoan();
