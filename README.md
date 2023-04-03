@@ -13,9 +13,9 @@
         </ul>
     </ul>
 <h2>Demo</h2>
-Truy cập: https://linh1023.github.io/DOANWEB/
-Tài khoản admin: admin
-Mật khẩu admin: admin
+<li>Truy cập: https://linh1023.github.io/DOANWEB/</li>
+<li>Tài khoản admin: admin</li>
+<li>Mật khẩu admin: admin</li>
 <h2>Chức năng</h2>
 <h3>Người dùng:</h3>
 <ul>
